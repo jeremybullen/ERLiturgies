@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #FAF8F5;
+    color: #1A1816;
+    font-family: 'EB Garamond', Garamond, 'Georgia', serif;
+    font-size: 19px;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  body.dark,
+  .dark body,
+  html.dark body {
+    background-color: #161513;
+    color: #EDE7DD;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'EB Garamond', Garamond, 'Georgia', serif;
+    color: inherit;
+    font-weight: 700;
+  }
+}
+
+/* Liturgical Vermilion Rubrics */
+.rubric, .liturgical-rubric-block {
+  color: #991B1B;
+  font-style: italic;
+}
+
+.dark .rubric,
+.dark .liturgical-rubric-block,
+html.dark .rubric,
+html.dark .liturgical-rubric-block {
+  color: #E86558 !important;
+  font-style: italic;
+}
+
+/* Ensure strong or speaker inside rubrics remains proper */
+.rubric strong, .liturgical-rubric-block strong {
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Drop Cap Typography */
+.liturgical-text {
+  font-feature-settings: "liga" 1, "dlig" 1, "calt" 1;
+}
+
+.small-caps {
+  font-variant: small-caps;
+  letter-spacing: 0.045em;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 18mm 15mm;
+  }
+
+  header, nav, .no-print, button, aside, [role="separator"], [role="dialog"], [aria-modal="true"] {
+    display: none !important;
+  }
+
+  html, body, html.dark, html.dark body, div, main {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-family: 'EB Garamond', Garamond, Georgia, serif !important;
+    font-size: 11pt !important;
+    line-height: 1.42 !important;
+  }
+
+  /* Traditional liturgical rubrics: red/crimson in print */
+  .rubric, .liturgical-rubric-block, html.dark .rubric, html.dark .liturgical-rubric-block, .text-\[\#991B1B\], .text-\[\#8A211D\], .dark\:text-\[\#E86558\] {
+    color: #8A211D !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Drop caps in print: ensure clean flow without overlap */
+  .float-left {
+    float: left !important;
+    margin-right: 0.15em !important;
+    line-height: 0.85 !important;
+  }
+
+  /* Congregational bold responses in print */
+  .font-semibold, .font-bold {
+    color: #000000 !important;
+  }
+
+  /* Headings: avoid page break after heading */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    color: #000000 !important;
+  }
+
+  h1 {
+    font-size: 18pt !important;
+    margin-top: 10pt !important;
+    margin-bottom: 8pt !important;
+    text-align: center !important;
+  }
+
+  h2 {
+    font-size: 14pt !important;
+    margin-top: 14pt !important;
+    margin-bottom: 6pt !important;
+    text-align: center !important;
+  }
+
+  h3 {
+    font-size: 12pt !important;
+    margin-top: 10pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+    margin-bottom: 6pt !important;
+  }
+
+  /* Prevent awkward page breaks inside short liturgical prayers and versicle-response pairs */
+  .liturgical-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Full page width utilization for clean paper margins */
+  main, .max-w-3xl, .max-w-4xl, .max-w-5xl {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Table formatting in print: proper border-collapse and page header repetition */
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+}
+
+/* Psalm jump target pulse animation */
+@keyframes psalmTargetPulse {
+  0% {
+    background-color: rgba(217, 119, 6, 0.28);
+    box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.28);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.psalm-highlight {
+  animation: psalmTargetPulse 2.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 4px;
+}
