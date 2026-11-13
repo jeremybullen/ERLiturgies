@@ -57,11 +57,20 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
         {/* Content */}
         <div className="space-y-5 text-[#44403C] dark:text-[#E2DDD5] leading-relaxed text-sm sm:text-base">
           <div className="flex items-center gap-3.5 p-3.5 rounded-md bg-[#F3EFE6] dark:bg-[#262420] border border-[#D8CEBC] dark:border-[#38352F]">
-            <img
-              src="/assets/aistudio/image_ed0917a1.png"
-              alt="Evangelical and Reformed Synod Seal"
-              className="w-14 h-14 sm:w-16 sm:h-16 object-contain dark:invert shrink-0 select-none"
-            />
+            <a
+              href="https://ersynod.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Evangelical & Reformed Synod (ersynod.org)"
+              aria-label="Visit Evangelical and Reformed Synod website (ersynod.org)"
+              className="shrink-0 rounded-full transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D]"
+            >
+              <img
+                src="/assets/aistudio/image_ed0917a1.png"
+                alt="Evangelical and Reformed Synod Seal"
+                className="w-14 h-14 sm:w-16 sm:h-16 object-contain dark:invert select-none"
+              />
+            </a>
             <p className="text-sm text-[#44403C] dark:text-[#D6CEBE] font-serif leading-relaxed">
               These are the historic liturgies approved for use in the <span className="font-semibold text-[#11223B] dark:text-[#FAF7F0]">Evangelical &amp; Reformed Synod</span>.
             </p>

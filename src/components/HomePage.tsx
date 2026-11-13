@@ -41,12 +41,21 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Main Header */}
       <header className="text-center mb-10 sm:mb-14 flex flex-col items-center">
         <div className="mb-4 sm:mb-5">
-          <img
-            src="/assets/aistudio/image_ed0917a1.png"
-            alt="Evangelical and Reformed Synod Seal"
-            className="w-24 h-24 sm:w-28 sm:h-28 object-contain dark:invert transition-all select-none"
-            loading="eager"
-          />
+          <a
+            href="https://ersynod.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Evangelical & Reformed Synod (ersynod.org)"
+            aria-label="Visit Evangelical and Reformed Synod website (ersynod.org)"
+            className="inline-block rounded-full transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9A782D]"
+          >
+            <img
+              src="/assets/aistudio/image_ed0917a1.png"
+              alt="Evangelical and Reformed Synod Seal"
+              className="w-24 h-24 sm:w-28 sm:h-28 object-contain dark:invert transition-all select-none"
+              loading="eager"
+            />
+          </a>
         </div>
         <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] tracking-tight mb-3 text-balance">
           Liturgies
