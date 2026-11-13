@@ -17,36 +17,36 @@ export const BookOverview: React.FC<BookOverviewProps> = ({
     <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6">
       
       {/* Book Cover Banner Card */}
-      <div className="relative rounded-2xl p-6 sm:p-10 bg-stone-100 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/80 mb-10 overflow-hidden">
+      <div className="relative rounded-2xl p-6 sm:p-10 bg-[#F3EFE6] dark:bg-[#1C1B18] border border-[#D8CEBC] dark:border-[#2C2A25] mb-10 overflow-hidden">
         
-        {/* Subtle decorative gold/amber watermark */}
-        <div className="absolute right-0 top-0 -translate-y-6 translate-x-6 w-48 h-48 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+        {/* Subtle decorative gold watermark */}
+        <div className="absolute right-0 top-0 -translate-y-6 translate-x-6 w-48 h-48 bg-[#9A782D]/10 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10">
-          <div className="flex flex-wrap items-center gap-3 text-xs font-sans text-stone-500 dark:text-stone-400 mb-3">
-            <span className="font-semibold uppercase tracking-wider text-amber-900 dark:text-amber-400">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#57534E] dark:text-[#A8A095] mb-3">
+            <span className="font-semibold uppercase tracking-wider text-[#9A782D] dark:text-[#C5A04E] tabular-nums">
               {book.year} Edition
             </span>
             <span>·</span>
-            <span>{book.tradition}</span>
+            <span className="font-sans">{book.tradition}</span>
             <span>·</span>
-            <span>{book.jurisdiction}</span>
+            <span className="font-sans">{book.jurisdiction}</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-100 tracking-tight mb-3">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#11223B] dark:text-[#FAF7F0] tracking-tight mb-3">
             {book.title}
           </h1>
 
-          <p className="font-serif italic text-base sm:text-lg text-stone-700 dark:text-stone-300 mb-6 max-w-2xl">
+          <p className="font-serif italic text-base sm:text-lg text-[#44403C] dark:text-[#D6CEBE] mb-6 max-w-2xl">
             {book.formalTitle}
           </p>
 
-          <p className="font-serif text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed mb-6">
+          <p className="font-sans text-sm sm:text-base text-[#44403C] dark:text-[#D6CEBE] leading-relaxed mb-6">
             {book.historicalContext}
           </p>
 
-          <div className="text-xs text-stone-500 dark:text-stone-400 pt-4 border-t border-stone-200 dark:border-stone-700/70">
-            <strong>Source & Authority:</strong> {book.sourceNote}
+          <div className="text-xs font-sans text-[#57534E] dark:text-[#A8A095] pt-4 border-t border-[#D8CEBC] dark:border-[#2C2A25]">
+            <strong className="text-[#1C1917] dark:text-[#FAF7F0]">Source & Authority:</strong> {book.sourceNote}
           </div>
         </div>
 
@@ -54,11 +54,11 @@ export const BookOverview: React.FC<BookOverviewProps> = ({
 
       {/* Awaiting Text Notice (if not yet imported) */}
       {book.status === 'awaiting_text' && (
-        <div className="mb-10 p-5 rounded-xl border border-amber-300 dark:border-amber-800 bg-amber-50/80 dark:bg-amber-950/30 flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-amber-800 dark:text-amber-400 shrink-0 mt-0.5" />
-          <div className="text-xs sm:text-sm text-amber-950 dark:text-amber-200">
+        <div className="mb-10 p-5 rounded-xl border border-[#9A782D]/50 dark:border-[#C5A04E]/40 bg-[#F3EFE6] dark:bg-[#1E1C19] flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-[#9A782D] dark:text-[#C5A04E] shrink-0 mt-0.5" />
+          <div className="text-xs sm:text-sm font-sans text-[#1C1917] dark:text-[#EDE7DD]">
             <h3 className="font-semibold mb-1">Awaiting Text Submission</h3>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-[#44403C] dark:text-[#D6CEBE]">
               The structure and service canon for this volume are configured and ready. Public domain liturgical text for this edition may be submitted to immediately populate the services below.
             </p>
           </div>
@@ -67,11 +67,11 @@ export const BookOverview: React.FC<BookOverviewProps> = ({
 
       {/* Services Index List */}
       <div>
-        <div className="flex items-center justify-between mb-6 pb-2 border-b border-stone-200 dark:border-stone-800">
-          <h2 className="font-heading text-2xl font-bold text-stone-900 dark:text-stone-100">
+        <div className="flex items-center justify-between mb-6 pb-2 border-b border-[#E4DDD0] dark:border-[#2C2A25]">
+          <h2 className="font-serif text-2xl font-bold text-[#11223B] dark:text-[#FAF7F0]">
             Order of Services & Offices
           </h2>
-          <span className="text-xs font-sans text-stone-500">
+          <span className="text-xs font-mono tabular-nums text-[#57534E] dark:text-[#A8A095]">
             {book.services.length} services
           </span>
         </div>
@@ -81,32 +81,32 @@ export const BookOverview: React.FC<BookOverviewProps> = ({
             <button
               key={service.id}
               onClick={() => onSelectService(service.slug)}
-              className="text-left p-5 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-800/60 hover:border-amber-700/50 hover:shadow-sm transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-800"
+              className="text-left p-5 rounded-xl border border-[#D8CEBC] dark:border-[#38352F] bg-[#F3EFE6] dark:bg-[#1C1B18] hover:border-[#9A782D] dark:hover:border-[#C5A04E] hover:bg-[#EAE3D5] dark:hover:bg-[#22201C] transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9A782D] cursor-pointer"
             >
-              <div className="flex items-center justify-between text-xs text-stone-400 mb-2">
-                <span className="font-sans font-semibold uppercase tracking-wider text-[11px] text-amber-900/80 dark:text-amber-400">
+              <div className="flex items-center justify-between text-xs text-[#57534E] dark:text-[#A8A095] mb-2">
+                <span className="font-sans font-semibold uppercase tracking-wider text-[11px] text-[#9A782D] dark:text-[#C5A04E]">
                   {service.category}
                 </span>
-                <span className="font-mono text-[11px]">
+                <span className="font-mono text-[11px] tabular-nums">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
               </div>
 
-              <h3 className="font-heading text-lg font-bold text-stone-900 dark:text-stone-100 group-hover:text-amber-900 dark:group-hover:text-amber-400 transition-colors mb-1.5">
+              <h3 className="font-serif text-lg font-bold text-[#11223B] dark:text-[#FAF7F0] group-hover:text-[#1A3357] dark:group-hover:text-[#C5A04E] transition-colors mb-1.5">
                 {service.title}
               </h3>
 
               {service.subtitle && (
-                <p className="font-serif italic text-xs text-stone-600 dark:text-stone-400 mb-2">
+                <p className="font-serif italic text-xs text-[#44403C] dark:text-[#D6CEBE] mb-2">
                   {service.subtitle}
                 </p>
               )}
 
-              <p className="font-serif text-xs text-stone-500 dark:text-stone-400 line-clamp-2 leading-relaxed">
+              <p className="font-sans text-xs text-[#57534E] dark:text-[#A8A095] line-clamp-2 leading-relaxed">
                 {service.description}
               </p>
 
-              <div className="mt-3 flex items-center text-xs font-medium text-amber-900 dark:text-amber-400 group-hover:translate-x-1 transition-transform">
+              <div className="mt-3 flex items-center text-xs font-sans font-medium text-[#11223B] dark:text-[#C5A04E] group-hover:translate-x-1 transition-transform">
                 <span>Read office</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-1" />
               </div>

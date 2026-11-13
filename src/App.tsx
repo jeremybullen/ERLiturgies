@@ -282,31 +282,31 @@ export function App() {
   }, [currentBook, currentService, route.bookId, route.isHome, isService]);
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#161513] text-stone-900 dark:text-[#EDE7DD] font-['EB_Garamond',Garamond,serif] selection:bg-[#E8DFC8] dark:selection:bg-[#3E382E] transition-colors duration-200">
+    <div className="min-h-screen bg-[#FAF7F2] dark:bg-[#161513] text-[#1C1917] dark:text-[#EDE7DD] font-sans selection:bg-[#EAE3D5] dark:selection:bg-[#3E382E] transition-colors duration-200">
       
       {/* Quiet, Typographic Running Header with Scroll-Aware Auto-Hide (Active during service reading) */}
       {!route.isHome && (
         <header
-          className={`no-print sticky top-0 z-30 bg-[#FAF8F5]/95 dark:bg-[#181715]/95 border-b border-[#E8E2D5] dark:border-[#2D2A24] backdrop-blur-xs py-2 px-3 sm:px-6 transform transition-transform duration-300 ease-in-out ${
+          className={`no-print sticky top-0 z-30 bg-[#FAF7F2]/95 dark:bg-[#181715]/95 border-b border-[#E4DDD0] dark:border-[#2D2A24] backdrop-blur-xs py-2 px-3 sm:px-6 transform transition-transform duration-300 ease-in-out ${
             isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
           }`}
         >
           <div className="max-w-4xl lg:max-w-5xl mx-auto flex items-center justify-between gap-1.5 sm:gap-3 w-full">
             
             {/* Typographic Running Header: Home / Book · Service */}
-            <div className="flex items-center gap-1 sm:gap-1.5 min-w-0 flex-1 font-serif text-sm sm:text-base">
+            <div className="flex items-center gap-1 sm:gap-1.5 min-w-0 flex-1 font-sans text-sm sm:text-base">
               
               {/* Home Link (Cross symbol only) */}
               <button
                 onClick={navigateToHome}
-                className="inline-flex items-center justify-center p-1 sm:p-1.5 rounded transition-colors cursor-pointer select-none shrink-0 text-stone-600 dark:text-stone-300 hover:text-[#8A211D] dark:hover:text-[#E86558] hover:bg-[#EFE9DC] dark:hover:bg-[#282622]"
+                className="inline-flex items-center justify-center p-1 sm:p-1.5 rounded transition-colors cursor-pointer select-none shrink-0 text-[#57534E] dark:text-[#D6CEBE] hover:text-[#9A782D] dark:hover:text-[#C5A04E] hover:bg-[#EAE3D5] dark:hover:bg-[#282622] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D]"
                 title="Return to Library Home"
                 aria-label="Return to Library Home"
               >
-                <span className="text-base select-none leading-none">✠</span>
+                <span className="text-base select-none leading-none font-serif">✠</span>
               </button>
 
-              <span className="text-stone-400 dark:text-stone-600 select-none shrink-0">/</span>
+              <span className="text-[#D8CEBC] dark:text-[#38352F] select-none shrink-0">/</span>
 
               {/* Book Selector */}
               <div className="relative shrink-0" ref={bookMenuRef}>
@@ -317,19 +317,19 @@ export function App() {
                     setIsPsalmJumpOpen(false);
                     setIsPropersJumpOpen(false);
                   }}
-                  className="inline-flex items-center gap-0.5 sm:gap-1 py-1 px-1 sm:px-1.5 rounded hover:bg-[#EFE9DC] dark:hover:bg-[#282622] transition-colors cursor-pointer select-none text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100"
+                  className="inline-flex items-center gap-0.5 sm:gap-1 py-1 px-1.5 sm:px-2 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] transition-colors cursor-pointer select-none text-[#44403C] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] whitespace-nowrap"
                   aria-expanded={isBookMenuOpen}
                   aria-haspopup="listbox"
                   title="Select Book"
                 >
-                  <span className="hidden sm:inline font-medium">{currentBook.title}</span>
-                  <span className="sm:hidden font-medium text-xs xs:text-sm">{route.bookId}</span>
+                  <span className="hidden sm:inline font-serif font-semibold text-base text-[#11223B] dark:text-[#FAF7F0]">{currentBook.title}</span>
+                  <span className="sm:hidden font-mono font-medium text-xs text-[#9A782D] dark:text-[#C5A04E] tabular-nums">{route.bookId}</span>
                   <ChevronDown className={`w-3.5 h-3.5 opacity-60 transition-transform duration-150 ${isBookMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {isBookMenuOpen && (
                   <div
-                    className="absolute top-full left-0 mt-1.5 w-64 max-w-[calc(100vw-2rem)] bg-[#FAF8F5] dark:bg-[#1E1D1A] border border-[#D5CCBA] dark:border-[#38352F] rounded-md shadow-2xl py-1 z-50 font-serif"
+                    className="absolute top-full left-0 mt-1.5 w-72 max-w-[calc(100vw-2rem)] bg-[#FAF7F2] dark:bg-[#1E1D1A] border border-[#D8CEBC] dark:border-[#38352F] rounded-md shadow-2xl py-1 z-50 font-sans"
                     role="listbox"
                   >
                     {(['1662', '1917', '1928', '1947'] as BookId[]).map((id) => {
@@ -341,14 +341,17 @@ export function App() {
                           onClick={() => switchBook(id)}
                           className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between gap-2 transition-colors cursor-pointer ${
                             isSelected
-                              ? 'bg-[#EFE9DC] dark:bg-[#2B2925] font-semibold text-stone-900 dark:text-[#FAF7F0]'
-                              : 'hover:bg-[#F5F0E7] dark:hover:bg-[#24221E] text-stone-700 dark:text-stone-300'
+                              ? 'bg-[#EAE3D5] dark:bg-[#2B2925] font-semibold text-[#11223B] dark:text-[#FAF7F0]'
+                              : 'hover:bg-[#F3EFE6] dark:hover:bg-[#24221E] text-[#44403C] dark:text-[#D6CEBE]'
                           }`}
                           role="option"
                           aria-selected={isSelected}
                         >
-                          <span>{b.title}</span>
-                          {isSelected && <Check className="w-3.5 h-3.5 text-[#8A211D] dark:text-[#E86558] shrink-0" />}
+                          <span className="flex items-baseline gap-2 min-w-0">
+                            <span className="font-mono text-xs text-[#9A782D] dark:text-[#C5A04E] tabular-nums shrink-0">{id}</span>
+                            <span className="font-serif text-[15px] truncate">{b.title.replace(/^\d{4}\s+/, '')}</span>
+                          </span>
+                          {isSelected && <Check className="w-3.5 h-3.5 text-[#9A782D] dark:text-[#C5A04E] shrink-0" />}
                         </button>
                       );
                     })}
@@ -356,7 +359,7 @@ export function App() {
                 )}
               </div>
 
-              <span className="text-stone-400 dark:text-stone-600 select-none shrink-0">/</span>
+              <span className="text-[#D8CEBC] dark:text-[#38352F] select-none shrink-0">/</span>
 
               {/* Service Selector */}
               <div className="relative min-w-0 max-w-[150px] xs:max-w-[200px] sm:max-w-[320px] md:max-w-[420px] lg:max-w-[520px]" ref={serviceMenuRef}>
@@ -367,12 +370,12 @@ export function App() {
                     setIsPsalmJumpOpen(false);
                     setIsPropersJumpOpen(false);
                   }}
-                  className="inline-flex items-center gap-0.5 sm:gap-1 py-1 px-1 sm:px-1.5 rounded hover:bg-[#EFE9DC] dark:hover:bg-[#282622] text-stone-900 dark:text-[#FAF7F0] font-semibold transition-colors cursor-pointer min-w-0 select-none"
+                  className="inline-flex items-center gap-0.5 sm:gap-1 py-1 px-1.5 sm:px-2 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#11223B] dark:text-[#FAF7F0] font-serif font-semibold transition-colors cursor-pointer min-w-0 select-none"
                   aria-expanded={isServiceMenuOpen}
                   aria-haspopup="listbox"
                   title="Select Service"
                 >
-                  <span className="truncate min-w-0 text-left text-xs xs:text-sm sm:text-base">
+                  <span className="truncate min-w-0 text-left text-sm sm:text-base">
                     {currentService.shortTitle || currentService.title}
                   </span>
                   <ChevronDown className={`w-3.5 h-3.5 opacity-60 shrink-0 transition-transform duration-150 ${isServiceMenuOpen ? 'rotate-180' : ''}`} />
@@ -380,7 +383,7 @@ export function App() {
 
                 {isServiceMenuOpen && (
                   <div
-                    className="absolute top-full left-0 mt-1.5 w-72 sm:w-80 max-w-[calc(100vw-2rem)] max-h-[75vh] overflow-y-auto bg-[#FAF8F5] dark:bg-[#1E1D1A] border border-[#D5CCBA] dark:border-[#38352F] rounded-md shadow-2xl py-1 z-50 font-serif"
+                    className="absolute top-full left-0 mt-1.5 w-72 sm:w-80 max-w-[calc(100vw-2rem)] max-h-[75vh] overflow-y-auto bg-[#FAF7F2] dark:bg-[#1E1D1A] border border-[#D8CEBC] dark:border-[#38352F] rounded-md shadow-2xl py-1 z-50 font-sans"
                     role="listbox"
                   >
                     {currentBook.services.map((s) => {
@@ -391,14 +394,14 @@ export function App() {
                           onClick={() => selectService(s.slug)}
                           className={`w-full text-left px-3 py-1.5 text-sm flex items-center justify-between gap-2 transition-colors cursor-pointer ${
                             isSelected
-                              ? 'bg-[#EFE9DC] dark:bg-[#2B2925] font-semibold text-stone-900 dark:text-[#FAF7F0]'
-                              : 'hover:bg-[#F5F0E7] dark:hover:bg-[#24221E] text-stone-700 dark:text-stone-300'
+                              ? 'bg-[#EAE3D5] dark:bg-[#2B2925] font-semibold text-[#11223B] dark:text-[#FAF7F0]'
+                              : 'hover:bg-[#F3EFE6] dark:hover:bg-[#24221E] text-[#44403C] dark:text-[#D6CEBE]'
                           }`}
                           role="option"
                           aria-selected={isSelected}
                         >
                           <span className="truncate flex-1">{s.shortTitle || s.title}</span>
-                          {isSelected && <Check className="w-3.5 h-3.5 text-[#8A211D] dark:text-[#E86558] shrink-0" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-[#9A782D] dark:text-[#C5A04E] shrink-0" />}
                         </button>
                       );
                     })}
@@ -408,7 +411,7 @@ export function App() {
 
               {/* Jump to Psalm selector when reading The Psalter */}
               {currentService.slug === 'the-psalter' && (
-                <div className="flex items-center ml-2.5 sm:ml-4 pl-2.5 sm:pl-3.5 border-l border-[#D5CCBA] dark:border-[#38352F] shrink-0" ref={psalmJumpRef}>
+                <div className="flex items-center ml-2.5 sm:ml-4 pl-2.5 sm:pl-3.5 border-l border-[#D8CEBC] dark:border-[#38352F] shrink-0" ref={psalmJumpRef}>
                   <div className="relative">
                     <button
                       onClick={() => {
@@ -416,14 +419,14 @@ export function App() {
                         setIsBookMenuOpen(false);
                         setIsServiceMenuOpen(false);
                       }}
-                      className="inline-flex items-center gap-1.5 py-1 px-2 sm:px-2.5 rounded border border-[#D5CCBA] dark:border-[#38352F] bg-[#F4EFE6] dark:bg-[#22201C] hover:bg-[#EFE9DC] dark:hover:bg-[#2B2925] text-stone-800 dark:text-stone-200 transition-colors cursor-pointer select-none text-xs font-medium shrink-0 shadow-2xs"
+                      className="inline-flex items-center gap-1.5 py-1 px-2 sm:px-2.5 rounded border border-[#D8CEBC] dark:border-[#38352F] bg-[#F3EFE6] dark:bg-[#22201C] hover:bg-[#EAE3D5] dark:hover:bg-[#2B2925] text-[#11223B] dark:text-[#FAF7F0] transition-colors cursor-pointer select-none text-xs font-sans font-medium shrink-0 whitespace-nowrap"
                       title="Jump directly to any Psalm by number (1 to 150)"
                       aria-label="Jump to Psalm"
                       aria-expanded={isPsalmJumpOpen}
                       aria-haspopup="dialog"
                     >
-                      <Search className="w-3 h-3 text-[#8A211D] dark:text-[#E86558]" />
-                      <span className="truncate max-w-[85px] sm:max-w-none">
+                      <Search className="w-3 h-3 text-[#9A782D] dark:text-[#C5A04E]" />
+                      <span className="truncate max-w-[85px] sm:max-w-none font-mono tabular-nums">
                         {activeJumpLabel || 'Psalm #'}
                       </span>
                       <ChevronDown className={`w-3 h-3 opacity-60 transition-transform duration-150 ${isPsalmJumpOpen ? 'rotate-180' : ''}`} />
@@ -452,7 +455,7 @@ export function App() {
 
               {/* Jump to Day selector when reading Collects, Epistles, and Gospels */}
               {currentService.slug === 'collects-epistles-gospels' && (
-                <div className="flex items-center ml-2.5 sm:ml-4 pl-2.5 sm:pl-3.5 border-l border-[#D5CCBA] dark:border-[#38352F] shrink-0" ref={propersJumpRef}>
+                <div className="flex items-center ml-2.5 sm:ml-4 pl-2.5 sm:pl-3.5 border-l border-[#D8CEBC] dark:border-[#38352F] shrink-0" ref={propersJumpRef}>
                   <div className="relative">
                     <button
                       onClick={() => {
@@ -461,13 +464,13 @@ export function App() {
                         setIsServiceMenuOpen(false);
                         setIsPsalmJumpOpen(false);
                       }}
-                      className="inline-flex items-center gap-1.5 py-1 px-2 sm:px-2.5 rounded border border-[#D5CCBA] dark:border-[#38352F] bg-[#F4EFE6] dark:bg-[#22201C] hover:bg-[#EFE9DC] dark:hover:bg-[#2B2925] text-stone-800 dark:text-stone-200 transition-colors cursor-pointer select-none text-xs font-medium shrink-0 shadow-2xs"
+                      className="inline-flex items-center gap-1.5 py-1 px-2 sm:px-2.5 rounded border border-[#D8CEBC] dark:border-[#38352F] bg-[#F3EFE6] dark:bg-[#22201C] hover:bg-[#EAE3D5] dark:hover:bg-[#2B2925] text-[#11223B] dark:text-[#FAF7F0] transition-colors cursor-pointer select-none text-xs font-sans font-medium shrink-0 whitespace-nowrap"
                       title="Jump directly to any Sunday or Holy Day"
                       aria-label="Jump to Sunday or Holy Day"
                       aria-expanded={isPropersJumpOpen}
                       aria-haspopup="dialog"
                     >
-                      <Search className="w-3 h-3 text-[#8A211D] dark:text-[#E86558]" />
+                      <Search className="w-3 h-3 text-[#9A782D] dark:text-[#C5A04E]" />
                       <span className="truncate max-w-[95px] sm:max-w-none">
                         {activeProperLabel || 'Day / Feast'}
                       </span>
@@ -499,22 +502,22 @@ export function App() {
             </div>
 
             {/* Right-Hand Controls: Dark Mode, Info */}
-            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 pl-1 z-10 bg-[#FAF8F5]/95 dark:bg-[#181715]/95">
+            <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 pl-1 z-10 bg-[#FAF7F2]/95 dark:bg-[#181715]/95">
 
               {/* Dark Mode Toggle */}
               <button
                 onClick={() => setIsDarkMode(prev => !prev)}
-                className="p-1 sm:p-1.5 rounded hover:bg-[#EFE9DC] dark:hover:bg-[#282622] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer shrink-0"
+                className="p-1.5 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#57534E] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer shrink-0"
                 title="Toggle dark mode (d)"
                 aria-label="Toggle dark mode"
               >
-                {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
+                {isDarkMode ? <Sun className="w-4 h-4 text-[#C5A04E]" /> : <Moon className="w-4 h-4" />}
               </button>
 
               {/* About & Sources */}
               <button
                 onClick={() => setIsAboutOpen(true)}
-                className="p-1 sm:p-1.5 rounded hover:bg-[#EFE9DC] dark:hover:bg-[#282622] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer shrink-0"
+                className="p-1.5 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#57534E] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer shrink-0"
                 title="About & Sources"
                 aria-label="About & Sources"
               >

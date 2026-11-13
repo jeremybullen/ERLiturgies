@@ -545,14 +545,14 @@ function renderTable(lines: string[], pIdx: number, fontSize: number, isServiceD
   return (
     <div
       key={pIdx}
-      className="my-6 overflow-x-auto rounded-lg border border-[#D5CCBA] dark:border-[#38352F] bg-[#FAF8F5] dark:bg-[#1C1B18] shadow-xs clear-both overscroll-x-contain"
+      className="my-6 overflow-x-auto rounded-lg border border-[#D8CEBC] dark:border-[#38352F] bg-[#FAF7F2] dark:bg-[#1C1B18] clear-both overscroll-x-contain"
     >
       <table
-        className="w-full border-collapse font-serif text-stone-900 dark:text-[#EDE7DD] tabular-nums"
+        className="w-full border-collapse font-serif text-[#1C1917] dark:text-[#EDE7DD] tabular-nums"
         style={{ fontSize: `${Math.max(13, Math.round(fontSize * 0.88))}px` }}
       >
         {headers.length > 0 && (
-          <thead className="bg-[#EFE8DA] dark:bg-[#262420] border-b-2 border-[#8A211D]/40 dark:border-[#E86558]/45">
+          <thead className="bg-[#F3EFE6] dark:bg-[#262420] border-b-2 border-[#9A782D]/50 dark:border-[#C5A04E]/50">
             <tr>
               {headers.map((h, hIdx) => {
                 const align = alignments[hIdx] || 'left';
@@ -562,7 +562,7 @@ function renderTable(lines: string[], pIdx: number, fontSize: number, isServiceD
                 return (
                   <th
                     key={hIdx}
-                    className={`px-3 sm:px-4 py-2.5 font-semibold text-[#8A211D] dark:text-[#E86558] ${alignClass} align-bottom border-r last:border-r-0 border-[#D5CCBA]/70 dark:border-[#38352F]/70 ${
+                    className={`px-3 sm:px-4 py-2.5 font-semibold text-[#11223B] dark:text-[#FAF7F0] ${alignClass} align-bottom border-r last:border-r-0 border-[#D8CEBC]/80 dark:border-[#38352F]/70 ${
                       isShort ? 'whitespace-nowrap' : 'whitespace-normal min-w-[5.5rem] sm:min-w-[7rem] leading-snug'
                     }`}
                     style={{ fontVariant: 'small-caps', letterSpacing: '0.04em' }}
@@ -578,11 +578,11 @@ function renderTable(lines: string[], pIdx: number, fontSize: number, isServiceD
             </tr>
           </thead>
         )}
-        <tbody className="divide-y divide-[#EAE3D5] dark:divide-[#2E2B25]">
+        <tbody className="divide-y divide-[#E4DDD0] dark:divide-[#2E2B25]">
           {rows.map((row, rIdx) => (
             <tr
               key={rIdx}
-              className="even:bg-[#F5EFE4]/35 dark:even:bg-[#201F1C]/40 hover:bg-[#EFE8DC]/60 dark:hover:bg-[#282622]/60 transition-colors"
+              className="even:bg-[#F3EFE6]/45 dark:even:bg-[#201F1C]/40 hover:bg-[#EAE3D5]/65 dark:hover:bg-[#282622]/60 transition-colors"
             >
               {row.map((cell, cIdx) => {
                 const align = alignments[cIdx] || 'left';
@@ -591,7 +591,7 @@ function renderTable(lines: string[], pIdx: number, fontSize: number, isServiceD
                 return (
                   <td
                     key={cIdx}
-                    className={`px-3 sm:px-4 py-2 align-top ${alignClass} border-r last:border-r-0 border-[#EAE3D5]/60 dark:border-[#2E2B25]/60 leading-relaxed`}
+                    className={`px-3 sm:px-4 py-2 align-top ${alignClass} border-r last:border-r-0 border-[#E4DDD0]/70 dark:border-[#2E2B25]/60 leading-relaxed`}
                   >
                     {trimmedCell ? (
                       renderInlineMarkdown(trimmedCell, false, false, isServiceDoc)
@@ -706,9 +706,9 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
       if (/^[-*_]{3,}$/.test(trimmed)) {
         return (
           <div key={pIdx} className="my-8 sm:my-10 flex items-center justify-center clear-both" role="separator">
-            <div className="w-16 sm:w-28 border-t border-[#D5CCBA] dark:border-[#38352F]" />
-            <span className="mx-3 text-[#8A211D]/40 dark:text-[#E86558]/40 text-xs select-none">✠</span>
-            <div className="w-16 sm:w-28 border-t border-[#D5CCBA] dark:border-[#38352F]" />
+            <div className="w-16 sm:w-28 border-t border-[#D8CEBC] dark:border-[#38352F]" />
+            <span className="mx-3 text-[#9A782D]/70 dark:text-[#C5A04E]/70 text-xs select-none">✠</span>
+            <div className="w-16 sm:w-28 border-t border-[#D8CEBC] dark:border-[#38352F]" />
           </div>
         );
       }
@@ -740,9 +740,9 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
           <h1
             key={pIdx}
             id={headerId}
-            className="text-center font-bold text-stone-900 dark:text-[#FAF7F0] my-8 sm:my-10 scroll-mt-16 sm:scroll-mt-20"
+            className="text-center font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] my-8 sm:my-10 scroll-mt-16 sm:scroll-mt-20 text-balance"
             style={{
-              fontSize: `${Math.round(fontSize * 1.6)}px`,
+              fontSize: `${Math.round(fontSize * 1.65)}px`,
               lineHeight: 1.22,
               letterSpacing: '0.015em'
             }}
@@ -773,11 +773,11 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
           <h2
             key={pIdx}
             id={headerId}
-            className="text-left font-bold text-stone-900 dark:text-[#FAF7F0] mt-10 mb-5 sm:mt-12 sm:mb-6 scroll-mt-16 sm:scroll-mt-20"
+            className="text-left font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] mt-10 mb-5 sm:mt-12 sm:mb-6 scroll-mt-16 sm:scroll-mt-20"
             style={{
-              fontSize: `${Math.round(fontSize * 1.28)}px`,
+              fontSize: `${Math.round(fontSize * 1.32)}px`,
               lineHeight: 1.3,
-              letterSpacing: '0.05em'
+              letterSpacing: '0.04em'
             }}
           >
             {toTitleCase(text)}
@@ -809,9 +809,9 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
             key={pIdx}
             id={headerId}
             data-psalm={headerId ? headerId.replace('psalm-', '') : undefined}
-            className="text-left font-semibold text-stone-800 dark:text-[#EDE7DD] mt-7 mb-3 sm:mt-8 sm:mb-3 scroll-mt-16 sm:scroll-mt-20"
+            className="text-left font-serif font-semibold text-[#1C1917] dark:text-[#EDE7DD] mt-7 mb-3 sm:mt-8 sm:mb-3 scroll-mt-16 sm:scroll-mt-20"
             style={{
-              fontSize: `${Math.round(fontSize * 1.12)}px`,
+              fontSize: `${Math.round(fontSize * 1.15)}px`,
               lineHeight: 1.35,
               letterSpacing: '0.015em'
             }}
@@ -835,9 +835,9 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
           <h4
             key={pIdx}
             id={headerId}
-            className="text-left font-medium italic text-stone-700 dark:text-[#DDD6C8] mt-5 mb-2 sm:mt-6 sm:mb-2 scroll-mt-16 sm:scroll-mt-20"
+            className="text-left font-serif font-medium italic text-[#44403C] dark:text-[#DDD6C8] mt-5 mb-2 sm:mt-6 sm:mb-2 scroll-mt-16 sm:scroll-mt-20"
             style={{
-              fontSize: `${Math.round(fontSize * 1.02)}px`,
+              fontSize: `${Math.round(fontSize * 1.04)}px`,
               lineHeight: 1.4,
               letterSpacing: '0.01em'
             }}
@@ -853,7 +853,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
         return (
           <h5
             key={pIdx}
-            className="text-left font-normal italic text-stone-600 dark:text-[#C5BEB0] mt-4 mb-2"
+            className="text-left font-serif font-normal italic text-[#57534E] dark:text-[#C5BEB0] mt-4 mb-2"
             style={{
               fontSize: `${Math.round(fontSize * 0.95)}px`,
               lineHeight: 1.4
@@ -870,7 +870,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
         return (
           <h6
             key={pIdx}
-            className="text-left font-normal italic text-stone-600 dark:text-[#C5BEB0] mt-3 mb-1.5"
+            className="text-left font-serif font-normal italic text-[#57534E] dark:text-[#C5BEB0] mt-3 mb-1.5"
             style={{
               fontSize: `${Math.round(fontSize * 0.88)}px`,
               lineHeight: 1.4
@@ -887,7 +887,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
         return (
           <p
             key={pIdx}
-            className="my-3 leading-relaxed text-stone-900 dark:text-[#EDE7DD] italic clear-both font-normal"
+            className="my-3 leading-relaxed text-[#1C1917] dark:text-[#EDE7DD] italic clear-both font-normal"
             style={{ fontSize: `${fontSize}px` }}
           >
             Amen.
@@ -903,13 +903,13 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
         return (
           <p
             key={pIdx}
-            className="my-4 leading-relaxed clear-both text-stone-900 dark:text-[#EDE7DD]"
+            className="my-4 leading-relaxed clear-both text-[#1C1917] dark:text-[#EDE7DD]"
             style={{ fontSize: `${Math.round(fontSize * 0.94)}px` }}
           >
             <span className="text-[#991B1B] dark:text-[#E86558] italic">{lessonAnnounce.rubric1}</span>{' '}
-            <span className="text-stone-900 dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken1}</span>{' '}
+            <span className="text-[#1C1917] dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken1}</span>{' '}
             <span className="text-[#991B1B] dark:text-[#E86558] italic">{lessonAnnounce.rubric2}</span>{' '}
-            <span className="text-stone-900 dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken2}</span>
+            <span className="text-[#1C1917] dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken2}</span>
           </p>
         );
       }
@@ -957,8 +957,8 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
           const spMatch = inner.match(/^((?:The\s+)?(?:Minister|Priest|Bishop|Dean|Reader|Officiant|Deacon|Question|Answer|Catechist|Response|Resp|People|The People|Congregation|[℣℟VR])[.:]?)\s+([\s\S]+)$/i);
           if (spMatch) {
             return (
-              <div key={pIdx} className="my-4 leading-relaxed text-stone-900 dark:text-[#EDE7DD] clear-both">
-                <span className="text-[#8A211D] dark:text-[#E86558] italic text-[0.92em] mr-2">
+              <div key={pIdx} className="my-4 leading-relaxed text-[#1C1917] dark:text-[#EDE7DD] clear-both">
+                <span className="text-[#991B1B] dark:text-[#E86558] italic text-[0.92em] mr-2">
                   {spMatch[1]}
                 </span>
                 <p className="inline leading-relaxed font-normal">
@@ -970,7 +970,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
 
           // Plain spoken bidding or versicle without speaker prefix
           return (
-            <div key={pIdx} className="my-4 leading-relaxed text-stone-900 dark:text-[#EDE7DD] clear-both">
+            <div key={pIdx} className="my-4 leading-relaxed text-[#1C1917] dark:text-[#EDE7DD] clear-both">
               <p className="inline leading-relaxed font-normal">
                 {renderLineContent(inner)}
               </p>
@@ -984,7 +984,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
           return (
             <p
               key={pIdx}
-              className="text-stone-900 dark:text-[#EDE7DD] italic my-4 leading-relaxed clear-both font-normal"
+              className="text-[#1C1917] dark:text-[#EDE7DD] italic my-4 leading-relaxed clear-both font-normal"
               style={{ fontSize: `${fontSize}px` }}
             >
               {renderInlineMarkdown(cleanInner, false, false, isServiceDoc)}
@@ -1021,11 +1021,10 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
           return (
             <div
               key={pIdx}
-              className="my-5 p-4 rounded-r-lg border-l-3 border-[#8A211D] dark:border-[#E86558] bg-[#F7F2E8]/80 dark:bg-[#1E1C19]/80 border-y border-r border-[#D5CCBA]/60 dark:border-[#38352F]/60 shadow-2xs clear-both"
+              className="my-5 p-4 rounded-lg bg-[#F3EFE6] dark:bg-[#1E1C19] border border-[#D8CEBC] dark:border-[#38352F] clear-both"
             >
               <div
-                className="text-xs font-bold text-[#8A211D] dark:text-[#E86558] uppercase tracking-wider mb-2.5"
-                style={{ fontVariant: 'small-caps', letterSpacing: '0.06em' }}
+                className="text-xs font-sans font-semibold text-[#991B1B] dark:text-[#E86558] uppercase tracking-wider mb-2.5"
               >
                 Manual Acts at the Consecration
               </div>
@@ -1038,7 +1037,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
                     const formattedLetter = `(${letter})`;
                     return (
                       <div key={idx} className="flex items-start gap-2.5">
-                        <span className="font-semibold text-[#8A211D] dark:text-[#E86558] shrink-0 select-none font-serif not-italic">
+                        <span className="font-semibold text-[#991B1B] dark:text-[#E86558] shrink-0 select-none font-serif not-italic">
                           {formattedLetter}
                         </span>
                         <span>{match[2]}</span>
@@ -1081,7 +1080,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
         let answerIsCatechism = false;
 
         const renderedBlock = (
-          <div key={pIdx} className="my-3.5 space-y-1.5 leading-relaxed text-stone-900 dark:text-[#EDE7DD] clear-both">
+          <div key={pIdx} className="my-3.5 space-y-1.5 leading-relaxed text-[#1C1917] dark:text-[#EDE7DD] clear-both">
             {lines.map((line, lIdx) => {
               const lineTrimmed = line.trim();
               const isLineRubric = isServiceDoc && lineTrimmed.startsWith('*') && lineTrimmed.endsWith('*') && isRubricItalic(lineTrimmed.slice(1, -1), isServiceDoc, false);
@@ -1192,7 +1191,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
       if (canApplyDropCap && (analysis.type === 'drop-cap-2' || analysis.type === 'drop-cap-3')) {
         const isTwoLine = analysis.type === 'drop-cap-2';
         return (
-          <div key={pIdx} className="my-5 leading-relaxed text-stone-900 dark:text-[#EDE7DD] clear-both">
+          <div key={pIdx} className="my-5 leading-relaxed text-[#1C1917] dark:text-[#EDE7DD] clear-both">
             {analysis.speakerRubric && (
               <div className="liturgical-rubric-block text-[#991B1B] dark:text-[#E86558] italic text-[0.9em] mb-1">
                 {renderInlineMarkdown(analysis.speakerRubric.replace(/^\*+|\*+$/g, ''), false, true, isServiceDoc)}
@@ -1200,23 +1199,23 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
             )}
             <p className="leading-relaxed">
               {analysis.quotePrefix && (
-                <span className="select-none text-stone-900 dark:text-[#EDE7DD] font-normal mr-0.5">{analysis.quotePrefix}</span>
+                <span className="select-none text-[#1C1917] dark:text-[#EDE7DD] font-normal mr-0.5">{analysis.quotePrefix}</span>
               )}
               <span
-                className="float-left text-[#8A211D] dark:text-[#E86558] select-none font-semibold leading-none"
+                className="float-left text-[#991B1B] dark:text-[#E86558] select-none font-semibold leading-none font-serif"
                 style={{
                   fontSize: isTwoLine ? '2.2em' : '3.3em',
                   lineHeight: isTwoLine ? '0.86' : '0.82',
                   marginTop: isTwoLine ? '0.06em' : '0.05em',
                   marginRight: isTwoLine ? '0.12em' : '0.13em',
                   marginBottom: '-0.02em',
-                  fontFamily: "'EB Garamond', Garamond, Georgia, serif"
+                  fontFamily: 'var(--font-serif)'
                 }}
               >
                 {analysis.firstLetter}
               </span>
               <span
-                className="text-stone-900 dark:text-[#FAF7F0] font-medium"
+                className="text-[#1C1917] dark:text-[#FAF7F0] font-medium"
                 style={{ fontVariant: 'small-caps', letterSpacing: '0.045em' }}
               >
                 {analysis.smallCapsText?.toLowerCase()}
@@ -1230,7 +1229,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
       // Default paragraph (no drop cap -> strictly NO small caps!)
       // Never delete the first words: display the complete fullBodyText in normal case
       return (
-        <div key={pIdx} className="my-4 leading-relaxed text-stone-900 dark:text-[#EDE7DD] clear-both">
+        <div key={pIdx} className="my-4 leading-relaxed text-[#1C1917] dark:text-[#EDE7DD] clear-both">
           {analysis.speakerRubric && (
             <span className="text-[#991B1B] dark:text-[#E86558] italic text-[0.92em] mr-2">
               {renderInlineMarkdown(analysis.speakerRubric.replace(/^\*+|\*+$/g, ''), false, true, isServiceDoc)}
@@ -1238,7 +1237,7 @@ export const LiturgicalReader: React.FC<LiturgicalReaderProps> = ({
           )}
           <p className="inline leading-relaxed">
             {analysis.quotePrefix && (
-              <span className="select-none text-stone-900 dark:text-[#EDE7DD] font-normal mr-0.5">{analysis.quotePrefix}</span>
+              <span className="select-none text-[#1C1917] dark:text-[#EDE7DD] font-normal mr-0.5">{analysis.quotePrefix}</span>
             )}
             {renderLineContent(toNormalCase(analysis.fullBodyText), false, false, isServiceDoc)}
           </p>
@@ -1371,7 +1370,7 @@ function renderLine(
   const isAmenOnlyLine = /^[*_\s]*Amen\.?[*_\s]*$/i.test(trimmed);
   if (isAmenOnlyLine) {
     return (
-      <div className="pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] italic font-normal leading-relaxed">
+      <div className="pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] italic font-normal leading-relaxed">
         Amen.
       </div>
     );
@@ -1381,11 +1380,11 @@ function renderLine(
   const lessonAnnounce = parseLessonAnnouncement(trimmed);
   if (lessonAnnounce) {
     return (
-      <div className="leading-relaxed text-stone-900 dark:text-[#EDE7DD]">
-        <span className="text-[#8A211D] dark:text-[#E86558] italic">{lessonAnnounce.rubric1}</span>{' '}
-        <span className="text-stone-900 dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken1}</span>{' '}
-        <span className="text-[#8A211D] dark:text-[#E86558] italic">{lessonAnnounce.rubric2}</span>{' '}
-        <span className="text-stone-900 dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken2}</span>
+      <div className="leading-relaxed text-[#1C1917] dark:text-[#EDE7DD]">
+        <span className="text-[#991B1B] dark:text-[#E86558] italic">{lessonAnnounce.rubric1}</span>{' '}
+        <span className="text-[#1C1917] dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken1}</span>{' '}
+        <span className="text-[#991B1B] dark:text-[#E86558] italic">{lessonAnnounce.rubric2}</span>{' '}
+        <span className="text-[#1C1917] dark:text-[#EDE7DD] font-normal not-italic">{lessonAnnounce.spoken2}</span>
       </div>
     );
   }
@@ -1397,7 +1396,7 @@ function renderLine(
     const speakerTag = cleanSpeakerTag(trimmed);
     const isSymbol = /^(?:Answer|Response|Resp|[℟R℣V])[.:]?$/i.test(speakerTag);
     return (
-      <div className={`liturgical-rubric-block text-[#8A211D] dark:text-[#E86558] ${isSymbol ? 'font-bold font-serif not-italic' : 'italic'} leading-relaxed`}>
+      <div className={`liturgical-rubric-block text-[#991B1B] dark:text-[#E86558] ${isSymbol ? 'font-bold font-serif not-italic' : 'italic'} leading-relaxed`}>
         {speakerTag}
       </div>
     );
@@ -1407,8 +1406,8 @@ function renderLine(
   const jointSpeakerMatch = trimmed.match(/^(\*?(?:The\s+)?(?:Minister\s+and\s+People|Priest\s+and\s+People)(?:\*?[.:]\*?|\*|\.\*|\*\.|\.)?)\s+([\s\S]+)$/i);
   if (jointSpeakerMatch) {
     return (
-      <div className="text-stone-900 dark:text-[#EDE7DD] font-normal leading-relaxed">
-        <span className="text-[#8A211D] dark:text-[#E86558] italic mr-2 select-none">{cleanSpeakerTag(jointSpeakerMatch[1])}</span>
+      <div className="text-[#1C1917] dark:text-[#EDE7DD] font-normal leading-relaxed">
+        <span className="text-[#991B1B] dark:text-[#E86558] italic mr-2 select-none">{cleanSpeakerTag(jointSpeakerMatch[1])}</span>
         {renderLineContent(jointSpeakerMatch[2], false, false, isServiceDoc)}
       </div>
     );
@@ -1426,16 +1425,16 @@ function renderLine(
 
     if (ansIsCatechism) {
       return (
-        <div className="pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] font-normal not-italic leading-relaxed">
-          <span className="text-[#8A211D] dark:text-[#E86558] font-bold font-serif not-italic mr-2 select-none">{speakerTag}</span>
+        <div className="pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] font-normal not-italic leading-relaxed">
+          <span className="text-[#991B1B] dark:text-[#E86558] font-bold font-serif not-italic mr-2 select-none">{speakerTag}</span>
           {renderLineContent(content, false, false, isServiceDoc)}
         </div>
       );
     }
 
     return (
-      <div className="pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] italic font-normal leading-relaxed">
-        <span className="text-[#8A211D] dark:text-[#E86558] font-bold font-serif not-italic mr-2 select-none">{speakerTag}</span>
+      <div className="pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] italic font-normal leading-relaxed">
+        <span className="text-[#991B1B] dark:text-[#E86558] font-bold font-serif not-italic mr-2 select-none">{speakerTag}</span>
         {renderLineContent(content, true, false, isServiceDoc)}
       </div>
     );
@@ -1449,8 +1448,8 @@ function renderLine(
     const content = rawContent.replace(/^[.:]\s*/, '');
     const isVersicleSign = speakerTag === '℣.';
     return (
-      <div className="text-stone-900 dark:text-[#EDE7DD] font-normal leading-relaxed">
-        <span className={`text-[#8A211D] dark:text-[#E86558] ${isVersicleSign ? 'font-bold font-serif not-italic' : 'italic'} mr-2 select-none`}>
+      <div className="text-[#1C1917] dark:text-[#EDE7DD] font-normal leading-relaxed">
+        <span className={`text-[#991B1B] dark:text-[#E86558] ${isVersicleSign ? 'font-bold font-serif not-italic' : 'italic'} mr-2 select-none`}>
           {speakerTag}
         </span>
         {renderLineContent(content, false, false, isServiceDoc)}
@@ -1470,7 +1469,7 @@ function renderLine(
 
     if (/^Amen\.?$/i.test(inner)) {
       return (
-        <div className="pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] italic font-normal leading-relaxed">
+        <div className="pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] italic font-normal leading-relaxed">
           {inner}
         </div>
       );
@@ -1479,14 +1478,14 @@ function renderLine(
     if (isSpokenLiturgicalText(inner) || isCongregational || isCatechismAnswer) {
       if (isCatechismAnswer) {
         return (
-          <div className="pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] font-normal not-italic leading-relaxed">
+          <div className="pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] font-normal not-italic leading-relaxed">
             {renderLineContent(inner, false, false, isServiceDoc)}
           </div>
         );
       }
 
       return (
-        <div className={isCongregational ? "pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] italic font-normal leading-relaxed" : "text-stone-900 dark:text-[#EDE7DD] font-normal leading-relaxed"}>
+        <div className={isCongregational ? "pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] italic font-normal leading-relaxed" : "text-[#1C1917] dark:text-[#EDE7DD] font-normal leading-relaxed"}>
           {renderLineContent(inner, isCongregational, false, isServiceDoc)}
         </div>
       );
@@ -1497,13 +1496,13 @@ function renderLine(
     const isRubric = isRubricItalic(cleanInner, isServiceDoc, false);
     if (!isRubric) {
       return (
-        <div className="text-stone-900 dark:text-[#EDE7DD] italic font-normal leading-relaxed">
+        <div className="text-[#1C1917] dark:text-[#EDE7DD] italic font-normal leading-relaxed">
           {renderInlineMarkdown(cleanInner, false, false, isServiceDoc)}
         </div>
       );
     }
     return (
-      <div className="liturgical-rubric-block text-[#8A211D] dark:text-[#E86558] italic leading-relaxed">
+      <div className="liturgical-rubric-block text-[#991B1B] dark:text-[#E86558] italic leading-relaxed">
         {renderInlineMarkdown(cleanInner, false, true, isServiceDoc)}
       </div>
     );
@@ -1512,7 +1511,7 @@ function renderLine(
   // Catechism answer continuation lines (without speaker prefix)
   if (isCatechismAnswer) {
     return (
-      <div className="pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] font-normal not-italic leading-relaxed">
+      <div className="pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] font-normal not-italic leading-relaxed">
         {renderLineContent(line, false, false, isServiceDoc)}
       </div>
     );
@@ -1523,7 +1522,7 @@ function renderLine(
   const isResponseLine = isCongregational;
 
   return (
-    <div className={isResponseLine ? 'pl-6 sm:pl-8 text-stone-900 dark:text-[#EDE7DD] italic font-normal leading-relaxed' : 'text-stone-900 dark:text-[#EDE7DD] font-normal leading-relaxed'}>
+    <div className={isResponseLine ? 'pl-6 sm:pl-8 text-[#1C1917] dark:text-[#EDE7DD] italic font-normal leading-relaxed' : 'text-[#1C1917] dark:text-[#EDE7DD] font-normal leading-relaxed'}>
       {renderLineContent(line, isResponseLine, false, isServiceDoc)}
     </div>
   );
@@ -1546,7 +1545,7 @@ function renderLineContent(
         {parts.map((part, idx) => (
           <React.Fragment key={idx}>
             {idx > 0 && (
-              <span className="inline-block px-1.5 text-[#8A211D] dark:text-[#E86558] font-serif select-none text-[0.95em]" title="Choral Pause">*</span>
+              <span className="inline-block px-1.5 text-[#991B1B] dark:text-[#E86558] font-serif select-none text-[0.95em]" title="Choral Pause">*</span>
             )}
             {renderInlineMarkdown(part, isResponse, isInsideRubric, isServiceDoc)}
           </React.Fragment>
@@ -1561,7 +1560,7 @@ function renderLineContent(
     return (
       <span>
         {renderInlineMarkdown(parts[0], isResponse, isInsideRubric, isServiceDoc)}
-        <span className="inline-block px-1 text-stone-900/70 dark:text-[#EDE7DD]/70 font-serif" title="Choral Caesura / Breath">:</span>{' '}
+        <span className="inline-block px-1 text-[#1C1917]/70 dark:text-[#EDE7DD]/70 font-serif" title="Choral Caesura / Breath">:</span>{' '}
         {renderInlineMarkdown(parts.slice(1).join(' : '), isResponse, isInsideRubric, isServiceDoc)}
       </span>
     );
@@ -1584,7 +1583,7 @@ function renderInlineWithSymbols(text: string, keyPrefix: number | string): Reac
           return (
             <span
               key={idx}
-              className="text-[#8A211D] dark:text-[#E86558] font-bold font-serif not-italic select-none mr-1.5"
+              className="text-[#991B1B] dark:text-[#E86558] font-bold font-serif not-italic select-none mr-1.5"
             >
               {p}
             </span>
@@ -1642,14 +1641,14 @@ function renderInlineMarkdown(
       if (isResponse && !isSpeakerTag) {
         // Spoken congregational responses are strictly standard ink italics, NEVER red rubrics
         parts.push(
-          <span key={key++} className="text-stone-900 dark:text-[#EDE7DD] italic font-normal">
+          <span key={key++} className="text-[#1C1917] dark:text-[#EDE7DD] italic font-normal">
             {rawItalicText}
           </span>
         );
       } else if (isAmen || isSpoken) {
         // Spoken liturgical text and Amens are strictly standard ink, NEVER red rubrics
         parts.push(
-          <span key={key++} className="text-stone-900 dark:text-[#EDE7DD] font-normal">
+          <span key={key++} className="text-[#1C1917] dark:text-[#EDE7DD] font-normal">
             {rawItalicText}
           </span>
         );
@@ -1661,11 +1660,11 @@ function renderInlineMarkdown(
         parts.push(
           <span
             key={key++}
-            className={`text-[#8A211D] dark:text-[#E86558] ${
+            className={`text-[#991B1B] dark:text-[#E86558] ${
               isResponseOrVersicle ? 'font-bold font-serif not-italic' : 'italic'
             } ${
               manualActTitle
-                ? 'font-semibold cursor-help underline decoration-dotted decoration-[#8A211D]/50 dark:decoration-[#E86558]/50 px-0.5'
+                ? 'font-semibold cursor-help underline decoration-dotted decoration-[#991B1B]/50 dark:decoration-[#E86558]/50 px-0.5'
                 : ''
             }`}
             title={manualActTitle}
@@ -1677,7 +1676,7 @@ function renderInlineMarkdown(
         // All body text italics that are NOT rubrics (e.g. in the Act of Uniformity, book titles, Latin phrases, Scripture citations, and emphasis)
         // render in standard body ink, NEVER vermilion rubric red
         parts.push(
-          <span key={key++} className="text-stone-900 dark:text-[#EDE7DD] italic font-normal">
+          <span key={key++} className="text-[#1C1917] dark:text-[#EDE7DD] italic font-normal">
             {rawItalicText}
           </span>
         );

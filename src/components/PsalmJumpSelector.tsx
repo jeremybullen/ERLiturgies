@@ -38,11 +38,11 @@ export function PsalmJumpSelector({ isOpen, onClose, onSelectTarget }: PsalmJump
 
   return (
     <div
-      className="absolute top-full left-0 sm:left-auto sm:right-0 mt-1 w-64 sm:w-72 bg-[#FAF8F5] dark:bg-[#1E1D1A] border border-[#D5CCBA] dark:border-[#38352F] rounded-md shadow-xl py-1 z-50 animate-in fade-in zoom-in-95 duration-100 flex flex-col max-h-[65vh] font-serif"
+      className="absolute top-full left-0 sm:left-auto sm:right-0 mt-1 w-64 sm:w-72 bg-[#FAF7F2] dark:bg-[#1E1D1A] border border-[#D8CEBC] dark:border-[#38352F] rounded-md shadow-xl py-1 z-50 animate-in fade-in zoom-in-95 duration-100 flex flex-col max-h-[65vh] font-sans"
       role="listbox"
     >
       {/* Minimal filter input */}
-      <div className="p-1.5 border-b border-[#ECE5D8] dark:border-[#33302A] shrink-0">
+      <div className="p-1.5 border-b border-[#E4DDD0] dark:border-[#33302A] shrink-0">
         <input
           ref={inputRef}
           type="text"
@@ -55,14 +55,14 @@ export function PsalmJumpSelector({ isOpen, onClose, onSelectTarget }: PsalmJump
             }
           }}
           placeholder="Filter psalm (e.g. 23)..."
-          className="w-full px-2 py-1 text-xs bg-white dark:bg-[#161513] border border-[#D5CCBA] dark:border-[#38352F] rounded text-stone-900 dark:text-[#EDE7DD] placeholder-stone-400 focus:outline-none focus:ring-1 focus:ring-[#8A211D] dark:focus:ring-[#E86558]"
+          className="w-full px-2 py-1 text-xs bg-white dark:bg-[#161513] border border-[#D8CEBC] dark:border-[#38352F] rounded text-[#1C1917] dark:text-[#EDE7DD] placeholder-[#78716C] focus:outline-none focus:ring-1 focus:ring-[#9A782D] dark:focus:ring-[#C5A04E]"
         />
       </div>
 
       {/* Clean, simple scrollable list of Psalms */}
-      <div className="overflow-y-auto divide-y divide-[#ECE5D8]/50 dark:divide-[#33302A]/50 py-0.5">
+      <div className="overflow-y-auto divide-y divide-[#E4DDD0]/70 dark:divide-[#33302A]/50 py-0.5">
         {filtered.length === 0 ? (
-          <div className="text-center py-4 text-xs text-stone-500 dark:text-stone-400">
+          <div className="text-center py-4 text-xs text-[#57534E] dark:text-stone-400">
             No Psalm found
           </div>
         ) : (
@@ -70,17 +70,17 @@ export function PsalmJumpSelector({ isOpen, onClose, onSelectTarget }: PsalmJump
             <button
               key={p.number}
               onClick={() => onSelectTarget(`psalm-${p.number}`, `Ps. ${p.roman}`)}
-              className="w-full text-left px-3 py-1.5 text-xs sm:text-sm hover:bg-[#EFE9DC] dark:hover:bg-[#282622] text-stone-800 dark:text-stone-200 flex items-baseline justify-between gap-2 cursor-pointer transition-colors"
+              className="w-full text-left px-3 py-1.5 text-xs sm:text-sm hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#44403C] dark:text-[#D6CEBE] flex items-baseline justify-between gap-2 cursor-pointer transition-colors"
             >
               <div className="truncate min-w-0">
-                <span className="font-semibold text-stone-900 dark:text-[#FAF7F0] mr-1.5 font-sans text-xs">
+                <span className="font-mono font-medium text-[#11223B] dark:text-[#FAF7F0] mr-1.5 text-xs tabular-nums">
                   {p.number}.
                 </span>
-                <span className="italic text-stone-700 dark:text-stone-300">
+                <span className="font-serif italic text-[#44403C] dark:text-[#D6CEBE]">
                   {p.latin}
                 </span>
               </div>
-              <span className="text-[10px] text-stone-400 dark:text-stone-500 font-sans shrink-0">
+              <span className="text-[10px] font-mono text-[#9A782D] dark:text-[#C5A04E] tabular-nums shrink-0">
                 Day {p.day}
               </span>
             </button>

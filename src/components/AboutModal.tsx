@@ -35,19 +35,19 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="about-modal-title"
-        className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto bg-[#FAF8F5] dark:bg-[#1E1D1A] border border-[#D5CCBA] dark:border-[#38352F] rounded-lg shadow-2xl p-5 sm:p-7 text-stone-900 dark:text-[#EDE7DD] z-10 animate-in fade-in zoom-in-95 duration-150"
+        className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto bg-[#FAF7F2] dark:bg-[#1E1D1A] border border-[#D8CEBC] dark:border-[#38352F] rounded-lg shadow-2xl p-5 sm:p-7 text-[#1C1917] dark:text-[#EDE7DD] font-sans z-10 animate-in fade-in zoom-in-95 duration-150"
       >
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#ECE5D8] dark:border-[#33302A]">
+        <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#E4DDD0] dark:border-[#33302A]">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-[#8A211D] dark:text-[#E86558]" />
-            <h2 id="about-modal-title" className="text-xl sm:text-2xl font-serif font-bold text-stone-900 dark:text-[#FAF7F0] tracking-wide">
+            <BookOpen className="w-5 h-5 text-[#9A782D] dark:text-[#C5A04E]" />
+            <h2 id="about-modal-title" className="text-xl sm:text-2xl font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] tracking-wide">
               About &amp; Sources
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-md hover:bg-[#F2ECE1] dark:hover:bg-[#2A2824] text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer"
+            className="p-1.5 rounded-md hover:bg-[#EAE3D5] dark:hover:bg-[#2A2824] text-[#57534E] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer"
             aria-label="Close about dialog"
           >
             <X className="w-5 h-5" />
@@ -55,82 +55,91 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
         </div>
 
         {/* Content */}
-        <div className="space-y-5 text-stone-800 dark:text-[#E2DDD5] leading-relaxed text-base">
-          <div className="flex items-center gap-3.5 p-3 rounded-md bg-[#F4EFE6]/70 dark:bg-[#262420] border border-[#E4DCCE] dark:border-[#38352F]">
+        <div className="space-y-5 text-[#44403C] dark:text-[#E2DDD5] leading-relaxed text-sm sm:text-base">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-md bg-[#F3EFE6] dark:bg-[#262420] border border-[#D8CEBC] dark:border-[#38352F]">
             <img
               src="/assets/aistudio/image_ed0917a1.png"
               alt="Evangelical and Reformed Synod Seal"
               className="w-14 h-14 sm:w-16 sm:h-16 object-contain dark:invert shrink-0 select-none"
             />
-            <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 font-serif leading-relaxed">
-              These are the historic liturgies approved for use in the <span className="font-semibold text-stone-900 dark:text-[#FAF7F0]">Evangelical &amp; Reformed Synod</span>.
+            <p className="text-sm text-[#44403C] dark:text-[#D6CEBE] font-serif leading-relaxed">
+              These are the historic liturgies approved for use in the <span className="font-semibold text-[#11223B] dark:text-[#FAF7F0]">Evangelical &amp; Reformed Synod</span>.
             </p>
           </div>
 
           <div className="space-y-4">
             {/* 1662 */}
-            <div className="p-3.5 rounded-md bg-[#F4EFE6]/60 dark:bg-[#262420] border border-[#E4DCCE] dark:border-[#38352F] space-y-1.5">
-              <div className="font-serif font-bold text-base sm:text-lg text-stone-900 dark:text-[#FAF7F0]">
-                1662 Book of Common Prayer
+            <div className="p-3.5 rounded-md bg-[#F3EFE6] dark:bg-[#262420] border border-[#D8CEBC] dark:border-[#38352F] space-y-1.5">
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono text-xs font-medium text-[#9A782D] dark:text-[#C5A04E] tabular-nums">1662</span>
+                <div className="font-serif font-bold text-base sm:text-lg text-[#11223B] dark:text-[#FAF7F0]">
+                  Book of Common Prayer
+                </div>
               </div>
-              <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300">
+              <p className="text-xs sm:text-sm text-[#44403C] dark:text-[#D6CEBE]">
                 The 1662 source is the statutory book, Americanized according to Sparks and Long, with the 1662 lectionary added back.
               </p>
               <div className="pt-0.5 flex flex-col gap-1.5 text-xs sm:text-sm">
-                <div className="text-xs sm:text-sm text-stone-700 dark:text-stone-300">
+                <div className="text-xs sm:text-sm text-[#57534E] dark:text-[#D6CEBE]">
                   Statutory Prayer Book source:
                 </div>
                 <a
                   href="https://justus.anglican.org/resources/bcp/1662/statutory.htm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#8A211D] dark:text-[#E86558] hover:underline font-medium break-all"
+                  className="inline-flex items-center gap-1.5 text-[#11223B] dark:text-[#C5A04E] hover:text-[#9A782D] hover:underline font-medium break-all"
                 >
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#9A782D] dark:text-[#C5A04E]" />
                   https://justus.anglican.org/resources/bcp/1662/statutory.htm
                 </a>
-                <div className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 pt-1">
+                <div className="text-xs sm:text-sm text-[#57534E] dark:text-[#D6CEBE] pt-1">
                   Americanized according to Sparks and Long:
                 </div>
                 <a
                   href="https://danielsparks.com/how-to-use-the-1662-book-of-common-prayer-in-the-united-states/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#8A211D] dark:text-[#E86558] hover:underline font-medium break-all"
+                  className="inline-flex items-center gap-1.5 text-[#11223B] dark:text-[#C5A04E] hover:text-[#9A782D] hover:underline font-medium break-all"
                 >
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#9A782D] dark:text-[#C5A04E]" />
                   How to Use the 1662 Book of Common Prayer in the United States (Sparks &amp; Long)
                 </a>
               </div>
             </div>
 
             {/* 1917 */}
-            <div className="p-3.5 rounded-md bg-[#F4EFE6]/60 dark:bg-[#262420] border border-[#E4DCCE] dark:border-[#38352F] space-y-1.5">
-              <div className="font-serif font-bold text-base sm:text-lg text-stone-900 dark:text-[#FAF7F0]">
-                1917 Common Service Book
+            <div className="p-3.5 rounded-md bg-[#F3EFE6] dark:bg-[#262420] border border-[#D8CEBC] dark:border-[#38352F] space-y-1.5">
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono text-xs font-medium text-[#9A782D] dark:text-[#C5A04E] tabular-nums">1917</span>
+                <div className="font-serif font-bold text-base sm:text-lg text-[#11223B] dark:text-[#FAF7F0]">
+                  Common Service Book
+                </div>
               </div>
-              <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300">
-                *Common Service Book of the Lutheran Church*, authorized by The United Lutheran Church in America (1917/1918), based upon the 1888 Common Service Rule: &ldquo;The common consent of the pure Lutheran Liturgies of the sixteenth century.&rdquo;
+              <p className="text-xs sm:text-sm text-[#44403C] dark:text-[#D6CEBE]">
+                <em className="font-serif italic">Common Service Book of the Lutheran Church</em>, authorized by The United Lutheran Church in America (1917/1918), based upon the 1888 Common Service Rule: &ldquo;The common consent of the pure Lutheran Liturgies of the sixteenth century.&rdquo;
               </p>
               <div className="pt-0.5 text-xs sm:text-sm">
                 <a
                   href="https://www.google.com/books/edition/Common_Service_Book_of_the_Lutheran_Chur/6jp5plsvXWEC"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#8A211D] dark:text-[#E86558] hover:underline font-medium break-all"
+                  className="inline-flex items-center gap-1.5 text-[#11223B] dark:text-[#C5A04E] hover:text-[#9A782D] hover:underline font-medium break-all"
                 >
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#9A782D] dark:text-[#C5A04E]" />
                   Common Service Book of the Lutheran Church (Google Books)
                 </a>
               </div>
             </div>
 
             {/* 1928 */}
-            <div className="p-3.5 rounded-md bg-[#F4EFE6]/60 dark:bg-[#262420] border border-[#E4DCCE] dark:border-[#38352F] space-y-1.5">
-              <div className="font-serif font-bold text-base sm:text-lg text-stone-900 dark:text-[#FAF7F0]">
-                1928 Book of Common Prayer
+            <div className="p-3.5 rounded-md bg-[#F3EFE6] dark:bg-[#262420] border border-[#D8CEBC] dark:border-[#38352F] space-y-1.5">
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono text-xs font-medium text-[#9A782D] dark:text-[#C5A04E] tabular-nums">1928</span>
+                <div className="font-serif font-bold text-base sm:text-lg text-[#11223B] dark:text-[#FAF7F0]">
+                  Book of Common Prayer
+                </div>
               </div>
-              <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300">
+              <p className="text-xs sm:text-sm text-[#44403C] dark:text-[#D6CEBE]">
                 From the Society of Archbishop Justus:
               </p>
               <div className="pt-0.5 text-xs sm:text-sm">
@@ -138,30 +147,33 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
                   href="https://justus.anglican.org/resources/bcp/1928/BCP_1928.htm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#8A211D] dark:text-[#E86558] hover:underline font-medium break-all"
+                  className="inline-flex items-center gap-1.5 text-[#11223B] dark:text-[#C5A04E] hover:text-[#9A782D] hover:underline font-medium break-all"
                 >
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#9A782D] dark:text-[#C5A04E]" />
                   https://justus.anglican.org/resources/bcp/1928/BCP_1928.htm
                 </a>
               </div>
             </div>
 
             {/* 1947 */}
-            <div className="p-3.5 rounded-md bg-[#F4EFE6]/60 dark:bg-[#262420] border border-[#E4DCCE] dark:border-[#38352F] space-y-1.5">
-              <div className="font-serif font-bold text-base sm:text-lg text-stone-900 dark:text-[#FAF7F0]">
-                1947 Book of Worship
+            <div className="p-3.5 rounded-md bg-[#F3EFE6] dark:bg-[#262420] border border-[#D8CEBC] dark:border-[#38352F] space-y-1.5">
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono text-xs font-medium text-[#9A782D] dark:text-[#C5A04E] tabular-nums">1947</span>
+                <div className="font-serif font-bold text-base sm:text-lg text-[#11223B] dark:text-[#FAF7F0]">
+                  Book of Worship
+                </div>
               </div>
-              <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300">
-                *Book of Worship Approved for Use in the Evangelical and Reformed Church*, digitized on Internet Archive:
+              <p className="text-xs sm:text-sm text-[#44403C] dark:text-[#D6CEBE]">
+                <em className="font-serif italic">Book of Worship Approved for Use in the Evangelical and Reformed Church</em>, digitized on Internet Archive:
               </p>
               <div className="pt-0.5 text-xs sm:text-sm">
                 <a
                   href="https://archive.org/details/bookofworshipapp0000evan/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[#8A211D] dark:text-[#E86558] hover:underline font-medium break-all"
+                  className="inline-flex items-center gap-1.5 text-[#11223B] dark:text-[#C5A04E] hover:text-[#9A782D] hover:underline font-medium break-all"
                 >
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#9A782D] dark:text-[#C5A04E]" />
                   https://archive.org/details/bookofworshipapp0000evan/
                 </a>
               </div>

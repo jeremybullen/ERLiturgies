@@ -43,8 +43,8 @@ export const ServiceViewer: React.FC<ServiceViewerProps> = ({
 
   // Rubric style
   const rubricColorClass = settings.rubricColor === 'crimson'
-    ? 'text-[#8A211D] dark:text-[#E06A64]'
-    : 'text-stone-600 dark:text-stone-400';
+    ? 'text-[#991B1B] dark:text-[#E86558]'
+    : 'text-[#57534E] dark:text-[#A8A095]';
 
   // Measure constraint
   const measureClass = settings.measureWidth === 'standard' ? 'max-w-[70ch]' : 'max-w-4xl';
@@ -54,45 +54,45 @@ export const ServiceViewer: React.FC<ServiceViewerProps> = ({
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-stone-900 text-stone-100 text-xs px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 border border-stone-700 animate-in fade-in duration-200">
-          <Check className="w-3.5 h-3.5 text-emerald-400" />
+        <div className="fixed bottom-6 right-6 z-50 bg-[#14532D] text-[#FAF7F2] text-xs font-sans px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 border border-[#14532D] animate-in fade-in duration-200">
+          <Check className="w-3.5 h-3.5 text-[#C5A04E]" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Breadcrumb Trail */}
-      <nav className="no-print flex items-center gap-1.5 text-xs text-stone-500 dark:text-stone-400 mb-6">
+      <nav className="no-print flex items-center gap-1.5 text-xs font-sans text-[#57534E] dark:text-[#A8A095] mb-6">
         <button
           onClick={() => onNavigate('/')}
-          className="hover:text-stone-900 dark:hover:text-stone-200 transition-colors"
+          className="hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer"
         >
           Library
         </button>
         <ChevronRight className="w-3.5 h-3.5" />
         <button
           onClick={() => onNavigate(`/${book.slug}`)}
-          className="hover:text-stone-900 dark:hover:text-stone-200 transition-colors"
+          className="hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer"
         >
           {book.shortTitle}
         </button>
         <ChevronRight className="w-3.5 h-3.5" />
-        <span className="text-stone-800 dark:text-stone-200 font-medium truncate">
+        <span className="text-[#1C1917] dark:text-[#FAF7F0] font-medium truncate">
           {service.title}
         </span>
       </nav>
 
       {/* Service Header */}
-      <header className="mb-10 pb-6 border-b border-stone-200 dark:border-stone-800 text-center">
+      <header className="mb-10 pb-6 border-b border-[#E4DDD0] dark:border-[#2C2A25] text-center">
         {service.traditionalTitle && (
-          <p className="text-xs font-sans tracking-widest uppercase text-stone-500 dark:text-stone-400 mb-2">
+          <p className="text-xs font-mono tracking-widest uppercase text-[#9A782D] dark:text-[#C5A04E] mb-2">
             {service.traditionalTitle}
           </p>
         )}
-        <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">
+        <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#11223B] dark:text-[#FAF7F0]">
           {service.title}
         </h1>
         {service.subtitle && (
-          <p className="font-heading text-lg sm:text-xl italic text-stone-700 dark:text-stone-300 mt-2">
+          <p className="font-serif text-lg sm:text-xl italic text-[#44403C] dark:text-[#D6CEBE] mt-2">
             {service.subtitle}
           </p>
         )}
@@ -101,7 +101,7 @@ export const ServiceViewer: React.FC<ServiceViewerProps> = ({
         <div className="no-print flex items-center justify-center gap-3 mt-6">
           <button
             onClick={copyPageUrl}
-            className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors border border-stone-200 dark:border-stone-700 cursor-pointer"
+            className="flex items-center gap-1.5 text-xs font-sans px-3 py-1.5 rounded bg-[#F3EFE6] dark:bg-[#1E1C19] text-[#44403C] dark:text-[#D6CEBE] hover:bg-[#EAE3D5] dark:hover:bg-[#2A2723] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors border border-[#D8CEBC] dark:border-[#38352F] cursor-pointer"
             title="Copy service link"
           >
             <Share2 className="w-3.5 h-3.5" />
@@ -123,16 +123,16 @@ export const ServiceViewer: React.FC<ServiceViewerProps> = ({
       </div>
 
       {/* Footer Navigation */}
-      <footer className="no-print mt-16 pt-8 border-t border-stone-200 dark:border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="no-print mt-16 pt-8 border-t border-[#E4DDD0] dark:border-[#2C2A25] flex flex-col sm:flex-row items-center justify-between gap-4">
         {prevService ? (
           <button
             onClick={() => onNavigate(`/${book.slug}/${prevService.slug}`)}
-            className="w-full sm:w-auto flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-medium transition-colors"
+            className="w-full sm:w-auto flex items-center gap-2 px-4 py-2 rounded-lg border border-[#D8CEBC] dark:border-[#38352F] bg-[#F3EFE6] dark:bg-[#1E1C19] hover:bg-[#EAE3D5] dark:hover:bg-[#2A2723] text-[#1C1917] dark:text-[#EDE7DD] text-xs font-sans font-medium transition-colors cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-[#9A782D] dark:text-[#C5A04E]" />
             <div className="text-left">
-              <span className="block text-[10px] uppercase text-stone-400">Previous Service</span>
-              <span className="font-heading text-sm font-semibold">{prevService.title}</span>
+              <span className="block text-[10px] font-mono uppercase text-[#57534E] dark:text-[#A8A095]">Previous Service</span>
+              <span className="font-serif text-sm font-semibold text-[#11223B] dark:text-[#FAF7F0]">{prevService.title}</span>
             </div>
           </button>
         ) : <div />}
@@ -140,13 +140,13 @@ export const ServiceViewer: React.FC<ServiceViewerProps> = ({
         {nextService && (
           <button
             onClick={() => onNavigate(`/${book.slug}/${nextService.slug}`)}
-            className="w-full sm:w-auto flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-medium transition-colors self-end"
+            className="w-full sm:w-auto flex items-center gap-2 px-4 py-2 rounded-lg border border-[#D8CEBC] dark:border-[#38352F] bg-[#F3EFE6] dark:bg-[#1E1C19] hover:bg-[#EAE3D5] dark:hover:bg-[#2A2723] text-[#1C1917] dark:text-[#EDE7DD] text-xs font-sans font-medium transition-colors self-end cursor-pointer"
           >
             <div className="text-right">
-              <span className="block text-[10px] uppercase text-stone-400">Next Service</span>
-              <span className="font-heading text-sm font-semibold">{nextService.title}</span>
+              <span className="block text-[10px] font-mono uppercase text-[#57534E] dark:text-[#A8A095]">Next Service</span>
+              <span className="font-serif text-sm font-semibold text-[#11223B] dark:text-[#FAF7F0]">{nextService.title}</span>
             </div>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#9A782D] dark:text-[#C5A04E]" />
           </button>
         )}
       </footer>
@@ -169,8 +169,8 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
   switch (block.type) {
     case 'heading':
       return (
-        <div className="pt-8 pb-3 border-b border-stone-200 dark:border-stone-800 text-left">
-          <h2 className="font-heading text-2xl font-bold tracking-wider text-stone-900 dark:text-stone-100">
+        <div className="pt-8 pb-3 border-b border-[#E4DDD0] dark:border-[#2C2A25] text-left">
+          <h2 className="font-serif text-2xl font-bold tracking-wide text-[#11223B] dark:text-[#FAF7F0]">
             {block.title}
           </h2>
         </div>
@@ -179,7 +179,7 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
     case 'subheading':
       return (
         <div className="pt-6 pb-2 text-left">
-          <h3 className="font-heading text-xl font-semibold text-stone-800 dark:text-stone-200">
+          <h3 className="font-serif text-xl font-semibold text-[#1C1917] dark:text-[#FAF7F0]">
             {block.title}
           </h3>
         </div>
@@ -187,7 +187,7 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
 
     case 'rubric':
       return (
-        <div className={`rubric-text ${rubricColorClass} italic font-serif text-[0.92em] py-1 my-3 pl-2 sm:pl-3 border-l-2 border-red-700/30 dark:border-red-400/30`}>
+        <div className={`rubric-text ${rubricColorClass} italic font-serif text-[0.92em] py-1 my-3`}>
           <p className="whitespace-pre-line leading-relaxed">
             {block.text}
           </p>
@@ -196,16 +196,16 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
 
     case 'scripture_sentence':
       return (
-        <div className="my-3 pl-2 sm:pl-4 border-l border-stone-200 dark:border-stone-700">
+        <div className="my-3 pl-2 sm:pl-4">
           {block.speaker && (
-            <p className="text-xs font-sans uppercase tracking-wider text-stone-500 mb-0.5">
+            <p className="text-xs font-sans uppercase tracking-wider text-[#57534E] dark:text-[#A8A095] mb-0.5">
               {block.speaker}
             </p>
           )}
-          <p className="font-serif text-stone-900 dark:text-stone-100">
+          <p className="font-serif text-[#1C1917] dark:text-[#EDE7DD]">
             {block.text}
             {block.citation && (
-              <span className="block sm:inline sm:ml-2 text-xs font-sans text-stone-500 dark:text-stone-400 italic">
+              <span className="block sm:inline sm:ml-2 text-xs font-serif text-[#991B1B] dark:text-[#E86558] italic">
                 — {block.citation}
               </span>
             )}
@@ -215,10 +215,10 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
 
     case 'prayer':
       return (
-        <div className="relative group my-5 p-4 rounded-lg bg-stone-100/40 dark:bg-stone-800/20 border border-stone-200/60 dark:border-stone-700/60">
+        <div className="relative group my-5 p-4 rounded-lg bg-[#F3EFE6]/70 dark:bg-[#1E1C19]/70 border border-[#D8CEBC] dark:border-[#38352F]">
 
           {block.title && (
-            <h4 className="font-heading text-lg font-medium italic text-left text-stone-900 dark:text-stone-100 mb-2">
+            <h4 className="font-serif text-lg font-medium italic text-left text-[#11223B] dark:text-[#FAF7F0] mb-2">
               {block.title}
             </h4>
           )}
@@ -227,11 +227,11 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
               {block.rubricNote}
             </p>
           )}
-          <p className="font-serif text-stone-900 dark:text-stone-100 whitespace-pre-line leading-relaxed">
+          <p className="font-serif text-[#1C1917] dark:text-[#EDE7DD] whitespace-pre-line leading-relaxed">
             {block.text}
           </p>
           {block.citation && (
-            <p className="text-xs text-stone-500 dark:text-stone-400 italic mt-2 text-right">
+            <p className="text-xs font-serif text-[#57534E] dark:text-[#A8A095] italic mt-2 text-right">
               {block.citation}
             </p>
           )}
@@ -245,12 +245,12 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
             const isResponse = /^(?:Answer|Response|Resp|People|The People|Congregation|[℟R])\b/i.test(line.speaker);
             return (
               <div key={dIdx} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
-                <span className={`shrink-0 w-24 text-xs font-sans font-semibold uppercase tracking-wider ${
-                  isResponse ? 'text-[#8A211D] dark:text-[#E86558]' : 'text-amber-900/80 dark:text-amber-400'
+                <span className={`shrink-0 w-24 text-xs font-serif font-bold tracking-wider ${
+                  isResponse ? 'text-[#991B1B] dark:text-[#E86558]' : 'text-[#991B1B] dark:text-[#E86558] italic'
                 }`}>
                   {line.speaker}
                 </span>
-                <span className="font-serif text-stone-900 dark:text-stone-100 whitespace-pre-line">
+                <span className={`font-serif text-[#1C1917] dark:text-[#EDE7DD] whitespace-pre-line ${isResponse ? 'italic' : ''}`}>
                   {line.text}
                 </span>
               </div>
@@ -264,11 +264,11 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
         <div className="my-6">
           {block.title && (
             <div className="text-left mb-4">
-              <h3 className="font-heading text-xl font-semibold tracking-wide text-stone-900 dark:text-stone-100">
+              <h3 className="font-serif text-xl font-semibold tracking-wide text-[#11223B] dark:text-[#FAF7F0]">
                 {block.title}
               </h3>
               {block.citation && (
-                <p className="text-xs font-sans text-stone-500 italic mt-0.5">
+                <p className="text-xs font-sans text-[#57534E] dark:text-[#A8A095] italic mt-0.5">
                   {block.citation}
                 </p>
               )}
@@ -280,10 +280,10 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
               {block.verses.map((verse, vIdx) => {
                 const parts = verse.text.split(' : ');
                 return (
-                  <div key={vIdx} className="font-serif text-stone-900 dark:text-stone-100 flex flex-col sm:flex-row sm:items-baseline pl-4">
+                  <div key={vIdx} className="font-serif text-[#1C1917] dark:text-[#EDE7DD] flex flex-col sm:flex-row sm:items-baseline pl-4">
                     <span className="flex-1">{parts[0]}</span>
                     {parts[1] && (
-                      <span className="sm:text-right text-stone-700 dark:text-stone-300 sm:w-1/2 italic pl-4 sm:pl-6">
+                      <span className="sm:text-right text-[#44403C] dark:text-[#D6CEBE] sm:w-1/2 italic pl-4 sm:pl-6">
                         : {parts[1]}
                       </span>
                     )}
@@ -292,7 +292,7 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
               })}
             </div>
           ) : (
-            <p className="font-serif text-stone-900 dark:text-stone-100 whitespace-pre-line leading-relaxed pl-4">
+            <p className="font-serif text-[#1C1917] dark:text-[#EDE7DD] whitespace-pre-line leading-relaxed pl-4">
               {block.text}
             </p>
           )}
@@ -301,13 +301,13 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
 
     case 'creed':
       return (
-        <div className="my-6 p-5 rounded-lg bg-stone-100/60 dark:bg-stone-800/30 border border-stone-200 dark:border-stone-700">
+        <div className="my-6 p-5 rounded-lg bg-[#F3EFE6] dark:bg-[#1E1C19] border border-[#D8CEBC] dark:border-[#38352F]">
           {block.title && (
-            <h3 className="font-heading text-xl font-semibold text-stone-900 dark:text-stone-100 mb-3 text-left">
+            <h3 className="font-serif text-xl font-semibold text-[#11223B] dark:text-[#FAF7F0] mb-3 text-left">
               {block.title}
             </h3>
           )}
-          <p className="font-serif text-stone-900 dark:text-stone-100 whitespace-pre-line leading-relaxed">
+          <p className="font-serif text-[#1C1917] dark:text-[#EDE7DD] whitespace-pre-line leading-relaxed">
             {block.text}
           </p>
         </div>
@@ -315,13 +315,13 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
 
     case 'exhortation':
       return (
-        <div className="my-5 p-4 rounded-lg bg-stone-50 dark:bg-stone-800/20 border-l-4 border-amber-800/40 dark:border-amber-500/40">
+        <div className="my-5 p-4 rounded-lg bg-[#F3EFE6]/60 dark:bg-[#1E1C19]/60 border border-[#D8CEBC] dark:border-[#38352F]">
           {block.title && (
-            <h4 className="font-heading text-lg font-medium italic text-left text-stone-900 dark:text-stone-100 mb-2">
+            <h4 className="font-serif text-lg font-medium italic text-left text-[#11223B] dark:text-[#FAF7F0] mb-2">
               {block.title}
             </h4>
           )}
-          <p className="font-serif text-stone-900 dark:text-stone-100 whitespace-pre-line leading-relaxed">
+          <p className="font-serif text-[#1C1917] dark:text-[#EDE7DD] whitespace-pre-line leading-relaxed">
             {block.text}
           </p>
         </div>
@@ -329,20 +329,20 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
 
     case 'catechism_qa':
       return (
-        <div className="my-4 p-4 rounded-md bg-stone-100/50 dark:bg-stone-800/30 border border-stone-200/70 dark:border-stone-700/70">
+        <div className="my-4 p-4 rounded-md bg-[#F3EFE6] dark:bg-[#1E1C19] border border-[#D8CEBC] dark:border-[#38352F]">
           <div className="mb-2">
-            <span className="text-xs font-sans font-bold uppercase tracking-wider text-amber-900 dark:text-amber-400 mr-2">
+            <span className="text-xs font-serif font-bold uppercase tracking-wider text-[#991B1B] dark:text-[#E86558] mr-2">
               Question.
             </span>
-            <span className="font-serif italic font-medium text-stone-900 dark:text-stone-100">
+            <span className="font-serif italic font-medium text-[#1C1917] dark:text-[#EDE7DD]">
               {block.question}
             </span>
           </div>
           <div>
-            <span className="text-xs font-sans font-bold uppercase tracking-wider text-[#8A211D] dark:text-[#E86558] mr-2">
+            <span className="text-xs font-serif font-bold uppercase tracking-wider text-[#991B1B] dark:text-[#E86558] mr-2">
               Answer.
             </span>
-            <span className="font-serif text-stone-900 dark:text-stone-100 whitespace-pre-line">
+            <span className="font-serif text-[#1C1917] dark:text-[#EDE7DD] whitespace-pre-line">
               {block.answer}
             </span>
           </div>
@@ -351,7 +351,7 @@ const BlockRenderer: React.FC<BlockRendererProps> = ({
 
     default:
       return (
-        <p className="font-serif text-stone-900 dark:text-stone-100 whitespace-pre-line leading-relaxed">
+        <p className="font-serif text-[#1C1917] dark:text-[#EDE7DD] whitespace-pre-line leading-relaxed">
           {block.text}
         </p>
       );

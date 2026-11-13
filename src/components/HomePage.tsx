@@ -18,19 +18,19 @@ export const HomePage: React.FC<HomePageProps> = ({
     <div className="py-6 sm:py-10 px-4 max-w-5xl mx-auto">
       
       {/* Top Utility Controls */}
-      <div className="flex justify-end items-center gap-1 mb-8 sm:mb-12 text-stone-600 dark:text-stone-400">
+      <div className="flex justify-end items-center gap-1 mb-8 sm:mb-12 text-[#57534E] dark:text-[#D6CEBE] font-sans">
         <button
           onClick={onToggleDarkMode}
-          className="p-1.5 rounded hover:bg-[#EFE9DC] dark:hover:bg-[#282622] hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer"
+          className="p-2 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D]"
           title="Toggle dark mode (d)"
           aria-label="Toggle dark mode"
         >
-          {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
+          {isDarkMode ? <Sun className="w-4 h-4 text-[#C5A04E]" /> : <Moon className="w-4 h-4" />}
         </button>
 
         <button
           onClick={onOpenAbout}
-          className="p-1.5 rounded hover:bg-[#EFE9DC] dark:hover:bg-[#282622] hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer"
+          className="p-2 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D]"
           title="About & Sources"
           aria-label="About & Sources"
         >
@@ -48,38 +48,41 @@ export const HomePage: React.FC<HomePageProps> = ({
             loading="eager"
           />
         </div>
-        <h1 className="text-4xl sm:text-5xl font-serif font-bold text-stone-900 dark:text-[#FAF7F0] tracking-tight mb-3">
+        <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] tracking-tight mb-3 text-balance">
           Liturgies
         </h1>
         <div className="flex items-center justify-center gap-3 my-3">
-          <div className="w-8 sm:w-14 border-t border-[#D5CCBA] dark:border-[#38352F]" />
-          <span className="text-[#8A211D] dark:text-[#E86558] text-base sm:text-lg select-none leading-none font-serif" aria-hidden="true">
+          <div className="w-8 sm:w-14 border-t border-[#D8CEBC] dark:border-[#38352F]" />
+          <span className="text-[#9A782D] dark:text-[#C5A04E] text-base sm:text-lg select-none leading-none font-serif" aria-hidden="true">
             ✠
           </span>
-          <div className="w-8 sm:w-14 border-t border-[#D5CCBA] dark:border-[#38352F]" />
+          <div className="w-8 sm:w-14 border-t border-[#D8CEBC] dark:border-[#38352F]" />
         </div>
-        <p className="text-sm sm:text-base font-serif italic text-stone-600 dark:text-stone-400">
+        <p className="text-base sm:text-lg font-serif italic text-[#57534E] dark:text-[#D6CEBE]">
           as approved for use in the Evangelical &amp; Reformed Synod
         </p>
       </header>
 
       {/* The Four Books in Chronological Order */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 mb-4 sm:mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-4 sm:mb-8">
         
         {/* 1662 */}
-        <div className="bg-[#FAF8F5] dark:bg-[#1C1B18] border border-[#D5CCBA] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#8A211D]/50 dark:hover:border-[#E86558]/50 transition-colors shadow-xs">
+        <div className="bg-[#F3EFE6] dark:bg-[#1C1B18] border border-[#D8CEBC] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#9A782D] dark:hover:border-[#C5A04E] transition-colors">
           <div>
             <button
               onClick={() => onNavigate('1662', 'morning-prayer')}
-              className="w-full text-center group cursor-pointer pb-3 border-b border-[#E8E2D5] dark:border-[#2E2B25]"
+              className="w-full text-center group cursor-pointer pb-3.5 border-b border-[#D8CEBC] dark:border-[#2E2B25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D] rounded-sm"
             >
-              <h2 className="text-lg sm:text-xl font-serif font-bold text-stone-900 dark:text-[#FAF7F0] group-hover:text-[#8A211D] dark:group-hover:text-[#E86558] transition-colors leading-snug min-h-[3.25rem] sm:min-h-[3.75rem] flex flex-col justify-center">
-                <span className="block">1662 Book of</span>
+              <span className="block font-mono text-xs font-medium tracking-wider text-[#9A782D] dark:text-[#C5A04E] tabular-nums mb-1">
+                1662
+              </span>
+              <h2 className="text-xl sm:text-[1.35rem] font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] group-hover:text-[#1A3357] dark:group-hover:text-[#C5A04E] transition-colors leading-snug">
+                <span className="block">Book of</span>
                 <span className="block">Common Prayer</span>
               </h2>
             </button>
 
-            <div className="pt-3 space-y-1 text-sm font-serif">
+            <div className="pt-3.5 space-y-1 text-sm font-sans">
               {[
                 { title: 'Morning Prayer', slug: 'morning-prayer' },
                 { title: 'Evening Prayer', slug: 'evening-prayer' },
@@ -90,7 +93,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <button
                   key={s.slug}
                   onClick={() => onNavigate('1662', s.slug)}
-                  className="block w-full py-1 px-2 rounded hover:bg-[#F2ECE1] dark:hover:bg-[#282622] text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer text-center"
+                  className="block w-full py-1.5 px-2.5 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#44403C] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer text-center font-medium"
                 >
                   {s.title}
                 </button>
@@ -100,19 +103,22 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* 1917 */}
-        <div className="bg-[#FAF8F5] dark:bg-[#1C1B18] border border-[#D5CCBA] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#8A211D]/50 dark:hover:border-[#E86558]/50 transition-colors shadow-xs">
+        <div className="bg-[#F3EFE6] dark:bg-[#1C1B18] border border-[#D8CEBC] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#9A782D] dark:hover:border-[#C5A04E] transition-colors">
           <div>
             <button
               onClick={() => onNavigate('1917', 'the-service')}
-              className="w-full text-center group cursor-pointer pb-3 border-b border-[#E8E2D5] dark:border-[#2E2B25]"
+              className="w-full text-center group cursor-pointer pb-3.5 border-b border-[#D8CEBC] dark:border-[#2E2B25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D] rounded-sm"
             >
-              <h2 className="text-lg sm:text-xl font-serif font-bold text-stone-900 dark:text-[#FAF7F0] group-hover:text-[#8A211D] dark:group-hover:text-[#E86558] transition-colors leading-snug min-h-[3.25rem] sm:min-h-[3.75rem] flex flex-col justify-center">
-                <span className="block">1917 Common</span>
+              <span className="block font-mono text-xs font-medium tracking-wider text-[#9A782D] dark:text-[#C5A04E] tabular-nums mb-1">
+                1917
+              </span>
+              <h2 className="text-xl sm:text-[1.35rem] font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] group-hover:text-[#1A3357] dark:group-hover:text-[#C5A04E] transition-colors leading-snug">
+                <span className="block">Common</span>
                 <span className="block">Service Book</span>
               </h2>
             </button>
 
-            <div className="pt-3 space-y-1 text-sm font-serif">
+            <div className="pt-3.5 space-y-1 text-sm font-sans">
               {[
                 { title: 'The Service', slug: 'the-service' },
                 { title: 'Matins', slug: 'matins' },
@@ -123,7 +129,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <button
                   key={s.slug}
                   onClick={() => onNavigate('1917', s.slug)}
-                  className="block w-full py-1 px-2 rounded hover:bg-[#F2ECE1] dark:hover:bg-[#282622] text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer text-center"
+                  className="block w-full py-1.5 px-2.5 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#44403C] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer text-center font-medium"
                 >
                   {s.title}
                 </button>
@@ -133,19 +139,22 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* 1928 */}
-        <div className="bg-[#FAF8F5] dark:bg-[#1C1B18] border border-[#D5CCBA] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#8A211D]/50 dark:hover:border-[#E86558]/50 transition-colors shadow-xs">
+        <div className="bg-[#F3EFE6] dark:bg-[#1C1B18] border border-[#D8CEBC] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#9A782D] dark:hover:border-[#C5A04E] transition-colors">
           <div>
             <button
               onClick={() => onNavigate('1928', 'morning-prayer')}
-              className="w-full text-center group cursor-pointer pb-3 border-b border-[#E8E2D5] dark:border-[#2E2B25]"
+              className="w-full text-center group cursor-pointer pb-3.5 border-b border-[#D8CEBC] dark:border-[#2E2B25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D] rounded-sm"
             >
-              <h2 className="text-lg sm:text-xl font-serif font-bold text-stone-900 dark:text-[#FAF7F0] group-hover:text-[#8A211D] dark:group-hover:text-[#E86558] transition-colors leading-snug min-h-[3.25rem] sm:min-h-[3.75rem] flex flex-col justify-center">
-                <span className="block">1928 Book of</span>
+              <span className="block font-mono text-xs font-medium tracking-wider text-[#9A782D] dark:text-[#C5A04E] tabular-nums mb-1">
+                1928
+              </span>
+              <h2 className="text-xl sm:text-[1.35rem] font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] group-hover:text-[#1A3357] dark:group-hover:text-[#C5A04E] transition-colors leading-snug">
+                <span className="block">Book of</span>
                 <span className="block">Common Prayer</span>
               </h2>
             </button>
 
-            <div className="pt-3 space-y-1 text-sm font-serif">
+            <div className="pt-3.5 space-y-1 text-sm font-sans">
               {[
                 { title: 'Morning Prayer', slug: 'morning-prayer' },
                 { title: 'Evening Prayer', slug: 'evening-prayer' },
@@ -156,7 +165,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <button
                   key={s.slug}
                   onClick={() => onNavigate('1928', s.slug)}
-                  className="block w-full py-1 px-2 rounded hover:bg-[#F2ECE1] dark:hover:bg-[#282622] text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer text-center"
+                  className="block w-full py-1.5 px-2.5 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#44403C] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer text-center font-medium"
                 >
                   {s.title}
                 </button>
@@ -166,19 +175,22 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* 1947 */}
-        <div className="bg-[#FAF8F5] dark:bg-[#1C1B18] border border-[#D5CCBA] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#8A211D]/50 dark:hover:border-[#E86558]/50 transition-colors shadow-xs">
+        <div className="bg-[#F3EFE6] dark:bg-[#1C1B18] border border-[#D8CEBC] dark:border-[#38352F] rounded-lg p-6 flex flex-col justify-between hover:border-[#9A782D] dark:hover:border-[#C5A04E] transition-colors">
           <div>
             <button
               onClick={() => onNavigate('1947', 'order-of-worship')}
-              className="w-full text-center group cursor-pointer pb-3 border-b border-[#E8E2D5] dark:border-[#2E2B25]"
+              className="w-full text-center group cursor-pointer pb-3.5 border-b border-[#D8CEBC] dark:border-[#2E2B25] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9A782D] rounded-sm"
             >
-              <h2 className="text-lg sm:text-xl font-serif font-bold text-stone-900 dark:text-[#FAF7F0] group-hover:text-[#8A211D] dark:group-hover:text-[#E86558] transition-colors leading-snug min-h-[3.25rem] sm:min-h-[3.75rem] flex flex-col justify-center">
-                <span className="block">1947 Book of</span>
+              <span className="block font-mono text-xs font-medium tracking-wider text-[#9A782D] dark:text-[#C5A04E] tabular-nums mb-1">
+                1947
+              </span>
+              <h2 className="text-xl sm:text-[1.35rem] font-serif font-bold text-[#11223B] dark:text-[#FAF7F0] group-hover:text-[#1A3357] dark:group-hover:text-[#C5A04E] transition-colors leading-snug">
+                <span className="block">Book of</span>
                 <span className="block">Worship</span>
               </h2>
             </button>
 
-            <div className="pt-3 space-y-1 text-sm font-serif">
+            <div className="pt-3.5 space-y-1 text-sm font-sans">
               {[
                 { title: 'The Order of Worship', slug: 'order-of-worship' },
                 { title: 'Holy Communion', slug: 'holy-communion' },
@@ -189,7 +201,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <button
                   key={s.slug}
                   onClick={() => onNavigate('1947', s.slug)}
-                  className="block w-full py-1 px-2 rounded hover:bg-[#F2ECE1] dark:hover:bg-[#282622] text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-pointer text-center"
+                  className="block w-full py-1.5 px-2.5 rounded hover:bg-[#EAE3D5] dark:hover:bg-[#282622] text-[#44403C] dark:text-[#D6CEBE] hover:text-[#11223B] dark:hover:text-[#FAF7F0] transition-colors cursor-pointer text-center font-medium"
                 >
                   {s.title}
                 </button>
